@@ -7,6 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
+    <link rel="mask-icon" href="favicon.svg" color="#4f46e5">
     <style>
         /* Set minimum page width to prevent design breakage */
         html, body {
@@ -40,10 +43,10 @@
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#all">All Articles</a></li>
-                    <li><a href="#tech">Technology</a></li>
-                    <li><a href="#career">Career</a></li>
-                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#all">All Posts</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#growth">Growth</a></li>
+                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#thoughts">Thoughts</a></li>
                 </ul>
             </div>
@@ -53,14 +56,14 @@
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="index.html" class="hover:text-primary">Home</a></li>
-                <li><a href="#all" class="hover:text-primary category-link" data-category="all">All Articles</a></li>
+                <li><a href="#all" class="hover:text-primary category-link" data-category="all">All Posts</a></li>
                 <li>
                     <details>
                         <summary class="hover:text-primary">Categories</summary>
                         <ul class="p-2 bg-base-100 rounded-t-none">
-                            <li><a href="#tech" class="category-link" data-category="tech">Technology</a></li>
-                            <li><a href="#career" class="category-link" data-category="career">Career</a></li>
-                            <li><a href="#tutorials" class="category-link" data-category="tutorials">Tutorials</a></li>
+                            <li><a href="#blog" class="category-link" data-category="blog">Blog</a></li>
+                            <li><a href="#growth" class="category-link" data-category="growth">Growth</a></li>
+                            <li><a href="#projects" class="category-link" data-category="projects">Projects</a></li>
                             <li><a href="#thoughts" class="category-link" data-category="thoughts">Thoughts</a></li>
                         </ul>
                     </details>
@@ -83,16 +86,16 @@
                 <p class="text-xl mb-6">Sharing experience, knowledge and thoughts about software development</p>
                 <div class="stats stats-horizontal bg-white/10 backdrop-blur-sm text-white">
                     <div class="stat">
-                        <div class="stat-title text-white/70">Articles</div>
-                        <div class="stat-value text-white">24</div>
+                        <div class="stat-title text-white/70">Posts</div>
+                        <div class="stat-value text-white">15</div>
                     </div>
                     <div class="stat">
                         <div class="stat-title text-white/70">Categories</div>
                         <div class="stat-value text-white">4</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-title text-white/70">Readers</div>
-                        <div class="stat-value text-white">1.2k</div>
+                        <div class="stat-title text-white/70">Growth Updates</div>
+                        <div class="stat-value text-white">6</div>
                     </div>
                 </div>
             </div>
@@ -105,19 +108,19 @@
             <div class="flex flex-wrap justify-center gap-4">
                 <button class="btn btn-primary category-filter active" data-category="all">
                     <i class="fas fa-list mr-2"></i>
-                    All Articles
+                    All Posts
                 </button>
-                <button class="btn btn-outline category-filter" data-category="tech">
-                    <i class="fas fa-code mr-2"></i>
-                    Technology
+                <button class="btn btn-outline category-filter" data-category="blog">
+                    <i class="fas fa-newspaper mr-2"></i>
+                    Blog
                 </button>
-                <button class="btn btn-outline category-filter" data-category="career">
-                    <i class="fas fa-briefcase mr-2"></i>
-                    Career
+                <button class="btn btn-outline category-filter" data-category="growth">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    Growth
                 </button>
-                <button class="btn btn-outline category-filter" data-category="tutorials">
-                    <i class="fas fa-graduation-cap mr-2"></i>
-                    Tutorials
+                <button class="btn btn-outline category-filter" data-category="projects">
+                    <i class="fas fa-tools mr-2"></i>
+                    Projects
                 </button>
                 <button class="btn btn-outline category-filter" data-category="thoughts">
                     <i class="fas fa-lightbulb mr-2"></i>
@@ -132,47 +135,20 @@
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8" id="blog-posts">
                 
-                <!-- Tech Posts -->
-                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="tech">
+                <!-- Blog Posts -->
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="blog">
                     <figure class="px-6 pt-6">
-                        <div class="w-full h-48 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
-                            <i class="fas fa-react text-4xl text-white"></i>
+                        <div class="w-full h-48 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-newspaper text-4xl text-white"></i>
                         </div>
                     </figure>
                     <div class="card-body">
                         <div class="flex items-center justify-between mb-2">
-                            <div class="badge badge-primary">Technology</div>
+                            <div class="badge badge-primary">Blog</div>
                             <time class="text-sm text-base-content/60">Dec 15, 2024</time>
                         </div>
-                        <h2 class="card-title">Modern C++ Patterns for Backend Development</h2>
-                        <p class="text-base-content/80">Exploring advanced C++ patterns and best practices for building high-performance backend systems...</p>
-                        <div class="card-actions justify-between items-center mt-4">
-                            <div class="flex items-center space-x-2">
-                                <div class="avatar">
-                                    <div class="w-6 rounded-full">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
-                                    </div>
-                                </div>
-                                <span class="text-sm text-base-content/60">5 min read</span>
-                            </div>
-                            <button class="btn btn-primary btn-sm">Read More</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="tutorials">
-                    <figure class="px-6 pt-6">
-                        <div class="w-full h-48 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center">
-                            <i class="fas fa-terminal text-4xl text-white"></i>
-                        </div>
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="badge badge-secondary">Tutorials</div>
-                            <time class="text-sm text-base-content/60">Dec 12, 2024</time>
-                        </div>
-                        <h2 class="card-title">Setting up Go Services with Docker</h2>
-                        <p class="text-base-content/80">Step-by-step guide to containerizing Go microservices with Docker and Kubernetes deployment...</p>
+                        <h2 class="card-title">How I Eliminated Traefik 502s in Production</h2>
+                        <p class="text-base-content/80">A deep dive into debugging random 502 errors under load and implementing context timeouts in Go handlers...</p>
                         <div class="card-actions justify-between items-center mt-4">
                             <div class="flex items-center space-x-2">
                                 <div class="avatar">
@@ -187,19 +163,73 @@
                     </div>
                 </article>
 
-                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="career">
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="projects">
                     <figure class="px-6 pt-6">
-                        <div class="w-full h-48 bg-gradient-to-br from-accent to-info rounded-xl flex items-center justify-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-tools text-4xl text-white"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="badge badge-secondary">Projects</div>
+                            <time class="text-sm text-base-content/60">Dec 12, 2024</time>
+                        </div>
+                        <h2 class="card-title">Building a Go Dependency Injection Generator</h2>
+                        <p class="text-base-content/80">How I built a code generator using go:generate to automate dependency injection in our microservices...</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="avatar">
+                                    <div class="w-6 rounded-full">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
+                                    </div>
+                                </div>
+                                <span class="text-sm text-base-content/60">6 min read</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="growth">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
                             <i class="fas fa-chart-line text-4xl text-white"></i>
                         </div>
                     </figure>
                     <div class="card-body">
                         <div class="flex items-center justify-between mb-2">
-                            <div class="badge badge-accent">Career</div>
-                            <time class="text-sm text-base-content/60">Dec 10, 2024</time>
+                            <div class="badge badge-accent">Growth</div>
+                            <time class="text-sm text-base-content/60">Dec 1, 2024</time>
                         </div>
-                        <h2 class="card-title">From Embedded to Backend Engineering</h2>
-                        <p class="text-base-content/80">My journey transitioning from embedded systems to distributed backend development and lessons learned...</p>
+                        <h2 class="card-title">What I Learned in November 2024</h2>
+                        <p class="text-base-content/80">Monthly reflection: 25 Go problems solved, Kubernetes fundamentals completed, and career preparation progress...</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="avatar">
+                                    <div class="w-6 rounded-full">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
+                                    </div>
+                                </div>
+                                <span class="text-sm text-base-content/60">4 min read</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="blog">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-database text-4xl text-white"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="badge badge-primary">Blog</div>
+                            <time class="text-sm text-base-content/60">Dec 8, 2024</time>
+                        </div>
+                        <h2 class="card-title">Event-Driven vs Saga: Choosing the Right Pattern</h2>
+                        <p class="text-base-content/80">Comparing distributed transaction patterns in microservices with real examples from food delivery systems...</p>
                         <div class="card-actions justify-between items-center mt-4">
                             <div class="flex items-center space-x-2">
                                 <div class="avatar">
@@ -208,33 +238,6 @@
                                     </div>
                                 </div>
                                 <span class="text-sm text-base-content/60">12 min read</span>
-                            </div>
-                            <button class="btn btn-primary btn-sm">Read More</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="tech">
-                    <figure class="px-6 pt-6">
-                        <div class="w-full h-48 bg-gradient-to-br from-info to-success rounded-xl flex items-center justify-center">
-                            <i class="fas fa-database text-4xl text-white"></i>
-                        </div>
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="badge badge-primary">Technology</div>
-                            <time class="text-sm text-base-content/60">Dec 8, 2024</time>
-                        </div>
-                        <h2 class="card-title">PostgreSQL Performance Optimization</h2>
-                        <p class="text-base-content/80">Deep dive into database indexing, query optimization, and scaling strategies for high-load systems...</p>
-                        <div class="card-actions justify-between items-center mt-4">
-                            <div class="flex items-center space-x-2">
-                                <div class="avatar">
-                                    <div class="w-6 rounded-full">
-                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
-                                    </div>
-                                </div>
-                                <span class="text-sm text-base-content/60">10 min read</span>
                             </div>
                             <button class="btn btn-primary btn-sm">Read More</button>
                         </div>
@@ -252,8 +255,8 @@
                             <div class="badge badge-warning">Thoughts</div>
                             <time class="text-sm text-base-content/60">Dec 5, 2024</time>
                         </div>
-                        <h2 class="card-title">The Future of Backend Development</h2>
-                        <p class="text-base-content/80">Thoughts on emerging technologies, distributed systems evolution, and what's next for backend engineering...</p>
+                        <h2 class="card-title">Context Timeout Eureka Moment</h2>
+                        <p class="text-base-content/80">Today I discovered that Traefik's default timeout can bite you if your Go handlers don't use context properly...</p>
                         <div class="card-actions justify-between items-center mt-4">
                             <div class="flex items-center space-x-2">
                                 <div class="avatar">
@@ -261,26 +264,26 @@
                                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
                                     </div>
                                 </div>
-                                <span class="text-sm text-base-content/60">7 min read</span>
+                                <span class="text-sm text-base-content/60">2 min read</span>
                             </div>
                             <button class="btn btn-primary btn-sm">Read More</button>
                         </div>
                     </div>
                 </article>
 
-                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="tutorials">
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="projects">
                     <figure class="px-6 pt-6">
-                        <div class="w-full h-48 bg-gradient-to-br from-success to-primary rounded-xl flex items-center justify-center">
+                        <div class="w-full h-48 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center">
                             <i class="fas fa-tools text-4xl text-white"></i>
                         </div>
                     </figure>
                     <div class="card-body">
                         <div class="flex items-center justify-between mb-2">
-                            <div class="badge badge-secondary">Tutorials</div>
+                            <div class="badge badge-secondary">Projects</div>
                             <time class="text-sm text-base-content/60">Dec 3, 2024</time>
                         </div>
-                        <h2 class="card-title">Setting up Development Environment for Go</h2>
-                        <p class="text-base-content/80">Complete guide to configuring your IDE, debugging tools, and productivity setup for Go development...</p>
+                        <h2 class="card-title">Fixing Docker-Compose MkDocs Preview</h2>
+                        <p class="text-base-content/80">How I solved the 404 config.yml error and got my local documentation preview working with proper volume mounts...</p>
                         <div class="card-actions justify-between items-center mt-4">
                             <div class="flex items-center space-x-2">
                                 <div class="avatar">
@@ -289,6 +292,90 @@
                                     </div>
                                 </div>
                                 <span class="text-sm text-base-content/60">6 min read</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional Growth Post -->
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="growth">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-chart-line text-4xl text-white"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="badge badge-accent">Growth</div>
+                            <time class="text-sm text-base-content/60">Nov 1, 2024</time>
+                        </div>
+                        <h2 class="card-title">What I Learned in October 2024</h2>
+                        <p class="text-base-content/80">Kubernetes fundamentals course completed, 30 LeetCode problems solved, and English conversation practice progress...</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="avatar">
+                                    <div class="w-6 rounded-full">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
+                                    </div>
+                                </div>
+                                <span class="text-sm text-base-content/60">5 min read</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional Thought -->
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="thoughts">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-4xl text-white"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="badge badge-warning">Thoughts</div>
+                            <time class="text-sm text-base-content/60">Dec 2, 2024</time>
+                        </div>
+                        <h2 class="card-title">English Phrase Victory</h2>
+                        <p class="text-base-content/80">Finally nailed "keep me posted" vs "keep me in the loop" in today's mock interview. Small wins matter!</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="avatar">
+                                    <div class="w-6 rounded-full">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
+                                    </div>
+                                </div>
+                                <span class="text-sm text-base-content/60">1 min read</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Read More</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional Blog Post -->
+                <article class="card bg-base-100 shadow-xl card-hover blog-post" data-category="blog">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-newspaper text-4xl text-white"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="badge badge-primary">Blog</div>
+                            <time class="text-sm text-base-content/60">Nov 25, 2024</time>
+                        </div>
+                        <h2 class="card-title">Building Resilient gRPC Services with Circuit Breakers</h2>
+                        <p class="text-base-content/80">How to implement circuit breaker patterns in Go microservices to handle downstream failures gracefully...</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="avatar">
+                                    <div class="w-6 rounded-full">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Author" />
+                                    </div>
+                                </div>
+                                <span class="text-sm text-base-content/60">10 min read</span>
                             </div>
                             <button class="btn btn-primary btn-sm">Read More</button>
                         </div>
