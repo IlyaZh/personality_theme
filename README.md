@@ -1,55 +1,55 @@
-# Personal Website - Илья Житенев
+# Personal Website - Ilia Zhitenev
 
-Современный статический сайт-портфолио с адаптивным дизайном и переключением темы.
+A modern static portfolio website with responsive design and theme switching.
 
-## 🚀 Особенности
+## 🚀 Features
 
-- **Адаптивный дизайн** - отлично работает на всех устройствах
-- **Переключение темы** - светлая и темная тема с сохранением настроек
-- **Современный UI** - использует DaisyUI и Tailwind CSS
-- **Страница резюме** - полная информация о навыках и опыте
-- **Блог с категориями** - организованный контент с фильтрацией
-- **Плавная анимация** - современные переходы и эффекты
+- **Responsive Design** - works perfectly on all devices
+- **Theme Switching** - light and dark theme with settings persistence
+- **Modern UI** - built with DaisyUI and Tailwind CSS
+- **Resume Page** - complete information about skills and experience
+- **Categorized Blog** - organized content with filtering
+- **Smooth Animations** - modern transitions and effects
 
-## 🛠 Технологии
+## 🛠 Technologies
 
-- **HTML5** - семантическая разметка
-- **CSS3** - современные стили
-- **JavaScript** - интерактивность
-- **DaisyUI** - компоненты UI
-- **Tailwind CSS** - утилитарные стили
-- **Font Awesome** - иконки
+- **HTML5** - semantic markup
+- **CSS3** - modern styling
+- **JavaScript** - interactivity
+- **DaisyUI** - UI components
+- **Tailwind CSS** - utility-first styling
+- **Font Awesome** - icons
 
-## 📱 Структура проекта
+## 📱 Project Structure
 
 ```
 try_to_gen_blog_design/
-├── index.html          # Главная страница (резюме)
-├── blog.html           # Страница блога
-├── package.json        # Конфигурация проекта
-└── README.md          # Документация
+├── index.html          # Main page (resume)
+├── blog.html           # Blog page
+├── package.json        # Project configuration
+└── README.md          # Documentation
 ```
 
-## 🚀 Запуск проекта
+## 🚀 Getting Started
 
-### Простой способ
-Откройте `index.html` в браузере - сайт готов к использованию!
+### Simple Way
+Open `index.html` in your browser - the website is ready to use!
 
-### С локальным сервером (рекомендуется)
+### With Local Server (Recommended)
 
-1. Установите зависимости:
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Запустите локальный сервер:
+2. Start local server:
 ```bash
 npm run dev
 ```
 
-3. Откройте браузер и перейдите по адресу: `http://localhost:3000`
+3. Open your browser and go to: `http://localhost:3000`
 
-### Альтернативные способы запуска
+### Alternative Ways to Run
 
 **Python:**
 ```bash
@@ -62,59 +62,58 @@ php -S localhost:3000
 ```
 
 **Live Server (VS Code):**
-Установите расширение Live Server и нажмите "Go Live"
+Install Live Server extension and click "Go Live"
 
-## 📄 Страницы
+## 📄 Pages
 
-### Главная страница (index.html)
-- Hero секция с презентацией
-- Секция "Обо мне" с статистикой
-- Навыки и технологии
-- Опыт работы
-- Портфолио проектов
-- Контактная информация
+### Main Page (index.html)
+- Hero section with presentation
+- About me section with statistics
+- Skills and technologies
+- Work experience timeline
+- Contact information
 
-### Блог (blog.html)
-- Категории статей:
-  - **Технологии** - обзоры и новинки
-  - **Карьера** - советы по развитию
-  - **Туториалы** - пошаговые руководства
-  - **Размышления** - личные мысли
-- Фильтрация по категориям
-- Адаптивная сетка статей
-- Подписка на новости
+### Blog (blog.html)
+- Article categories:
+  - **Blog** - technical insights and reviews
+  - **Growth** - career development advice
+  - **Projects** - showcase and tutorials
+  - **Thoughts** - personal reflections
+- Category filtering
+- Responsive article grid
+- Newsletter subscription
 
-## 🎨 Кастомизация
+## 🎨 Customization
 
-### Изменение цветовой схемы
-DaisyUI поддерживает множество тем. Измените `data-theme` в HTML:
+### Changing Color Scheme
+DaisyUI supports multiple themes. Change `data-theme` in HTML:
 ```html
-<html data-theme="cupcake"> <!-- или другая тема -->
+<html data-theme="cupcake"> <!-- or another theme -->
 ```
 
-### Персонализация контента
-1. Замените информацию в секциях на свою
-2. Обновите ссылки на социальные сети
-3. Добавьте свои проекты и статьи
+### Content Personalization
+1. Replace section information with your own
+2. Update social media links
+3. Add your projects and articles
 
-### Добавление новых секций
-Используйте готовые компоненты DaisyUI:
-- Cards для проектов
-- Stats для статистики
-- Timeline для истории
-- Badges для навыков
+### Adding New Sections
+Use ready-made DaisyUI components:
+- Cards for projects
+- Stats for statistics
+- Timeline for history
+- Badges for skills
 
-## 🌐 Деплой
+## 🌐 Deployment
 
 ### GitHub Pages
-1. Загрузите код в репозиторий GitHub
-2. Включите GitHub Pages в настройках
-3. Выберите ветку для деплоя
+1. Upload code to GitHub repository
+2. Enable GitHub Pages in settings
+3. Select branch for deployment
 
 ### Netlify
-1. Подключите репозиторий к Netlify
-2. Настройки сборки не нужны (статический сайт)
-3. Сайт будет автоматически обновляться при пуше
+1. Connect repository to Netlify
+2. No build settings needed (static site)
+3. Site will auto-update on push
 
 ### Vercel
 ```bash
@@ -122,30 +121,30 @@ npm install -g vercel
 vercel --prod
 ```
 
-## 🔧 Разработка
+## 🔧 Development
 
-### Структура CSS
-- Основные стили в `<style>` тегах
-- Tailwind CSS для утилитарных классов
-- DaisyUI для компонентов
+### CSS Structure
+- Main styles in `<style>` tags
+- Tailwind CSS for utility classes
+- DaisyUI for components
 
-### JavaScript функционал
-- Переключение темы с localStorage
-- Фильтрация статей блога
-- Плавная прокрутка
-- Анимации при наведении
+### JavaScript Functionality
+- Theme switching with localStorage
+- Blog article filtering
+- Smooth scrolling
+- Hover animations
 
-## 📞 Контакты
+## 📞 Contact
 
 - **Email**: ilia.zhitenev@example.com
 - **LinkedIn**: linkedin.com/in/ilia-zhitenev
 - **GitHub**: github.com/iliazhitenev
 - **Telegram**: @iliazhitenev
 
-## 📝 Лицензия
+## 📝 License
 
-MIT License - используйте свободно для личных и коммерческих проектов.
+MIT License - use freely for personal and commercial projects.
 
 ---
 
-**Сделано с ❤️ и современными веб-технологиями**
+**Made with ❤️ and modern web technologies**
