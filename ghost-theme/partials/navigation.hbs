@@ -27,16 +27,16 @@
     
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
-            <li><a href="{{@site.url}}" class="hover:text-primary {{#is "home"}}text-primary{{/is}}">Home</a></li>
-            <li><a href="{{@site.url}}/blog/" class="hover:text-primary {{#is "index"}}text-primary{{/is}}">All Posts</a></li>
+            <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
+            <li><a href="{{@site.url}}/blog/" class="hover:text-primary {{#is "home"}}text-primary{{/is}}">All Posts</a></li>
             <li>
                 <details>
-                    <summary class="hover:text-primary">Categories</summary>
+                    <summary class="hover:text-primary {{#is "tag"}}text-primary{{/is}}">Categories</summary>
                     <ul class="p-2 bg-base-100 rounded-t-none">
-                        <li><a href="{{@site.url}}/tag/blog/" class="{{#has tag="blog"}}text-primary{{/has}}">Blog</a></li>
-                        <li><a href="{{@site.url}}/tag/growth/" class="{{#has tag="growth"}}text-primary{{/has}}">Growth</a></li>
-                        <li><a href="{{@site.url}}/tag/projects/" class="{{#has tag="projects"}}text-primary{{/has}}">Projects</a></li>
-                        <li><a href="{{@site.url}}/tag/thoughts/" class="{{#has tag="thoughts"}}text-primary{{/has}}">Thoughts</a></li>
+                        <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
+                        <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
+                        <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
+                        <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
                     </ul>
                 </details>
             </li>

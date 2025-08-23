@@ -6,13 +6,9 @@
     <title>{{tag.name}} - {{@site.title}}</title>
     <meta name="description" content="{{tag.description}}">
     
-    {{!-- DaisyUI and Tailwind CSS --}}
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    {{!-- Theme styles --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+           {{!-- Theme styles --}}
+      <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     {{!-- Favicon --}}
     <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
@@ -266,6 +262,12 @@
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const dropdown = document.querySelector('.dropdown');
+            
+            // Don't close if clicking on form elements
+            if (event.target.matches('input, textarea, button[type="submit"], .form-control, .form-control *')) {
+                return;
+            }
+            
             if (dropdown && !dropdown.contains(event.target)) {
                 closeMobileMenu();
             }

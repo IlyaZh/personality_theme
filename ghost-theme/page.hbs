@@ -1,241 +1,107 @@
-<!DOCTYPE html>
-<html lang="{{@site.locale}}" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>{{title}} - {{@site.title}}</title>
-    <meta name="description" content="{{excerpt}}">
-    
-    {{!-- DaisyUI and Tailwind CSS --}}
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    {{!-- Theme styles --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    
-    {{!-- Favicon --}}
-    <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
-    <link rel="alternate icon" href="{{asset 'favicon.ico'}}">
-    <link rel="mask-icon" href="{{asset 'favicon.svg'}}" color="#4f46e5">
-    
-    {{!-- Ghost head --}}
-    {{ghost_head}}
-</head>
-<body class="min-h-screen bg-base-100">
-    <!-- Navigation -->
-    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
-        <div class="navbar-start">
-            <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
-                    </svg>
+{{!< default}}
+
+{{!-- Page template - inherits from default.hbs --}}
+{{#page}}
+<article class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs text-sm mb-6">
+        <ul>
+            <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
+            <li>{{title}}</li>
+        </ul>
+    </div>
+
+    <!-- Page Meta -->
+    {{#if @page.show_title_and_feature_image}}
+    <div class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-base-content">{{title}}</h1>
+        
+        <div class="flex items-center gap-4 text-base-content/60 mb-6">
+            {{#if primary_author.profile_image}}
+            <div class="avatar">
+                <div class="w-10 h-10 rounded-full">
+                    <img src="{{img_url primary_author.profile_image size="s"}}" alt="{{primary_author.name}}">
                 </div>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="{{@site.url}}">Home</a></li>
-                    <li><a href="{{@site.url}}/blog/">All Posts</a></li>
-                    <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
-                    <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
-                    <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
-                    <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
-                </ul>
             </div>
-            <a href="{{@site.url}}" class="btn btn-ghost text-xl font-bold">{{@site.title}}</a>
+            {{/if}}
+            <div>
+                <div class="font-semibold text-base-content">{{primary_author.name}}</div>
+                <div class="text-sm">
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM DD, YYYY"}}</time>
+                    {{#if updated_at}}
+                    <span class="mx-2">•</span>
+                    <span>Updated {{date updated_at format="MMM DD, YYYY"}}</span>
+                    {{/if}}
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Featured Image -->
+    {{#if feature_image}}
+    <figure class="mb-8">
+        <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="w-full rounded-xl shadow-lg">
+        {{#if feature_image_caption}}
+        <figcaption class="text-center text-sm text-base-content/60 mt-2">{{feature_image_caption}}</figcaption>
+        {{/if}}
+    </figure>
+    {{/if}}
+    {{else}}
+    <!-- Fallback: always show title and feature image if @page setting is not available -->
+    <div class="mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-base-content">{{title}}</h1>
         
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
-                <li><a href="{{@site.url}}/blog/" class="hover:text-primary">All Posts</a></li>
-                <li>
-                    <details>
-                        <summary class="hover:text-primary">Categories</summary>
-                        <ul class="p-2 bg-base-100 rounded-t-none">
-                            <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
-                            <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
-                            <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
-                            <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
+        <div class="flex items-center gap-4 text-base-content/60 mb-6">
+            {{#if primary_author.profile_image}}
+            <div class="avatar">
+                <div class="w-10 h-10 rounded-full">
+                    <img src="{{img_url primary_author.profile_image size="s"}}" alt="{{primary_author.name}}">
+                </div>
+            </div>
+            {{/if}}
+            <div>
+                <div class="font-semibold text-base-content">{{primary_author.name}}</div>
+                <div class="text-sm">
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM DD, YYYY"}}</time>
+                    {{#if updated_at}}
+                    <span class="mx-2">•</span>
+                    <span>Updated {{date updated_at format="MMM DD, YYYY"}}</span>
+                    {{/if}}
+                </div>
+            </div>
         </div>
-        
-        <div class="navbar-end">
-            <button class="btn btn-ghost btn-circle" id="theme-toggle">
-                <i class="fas fa-moon text-xl" id="theme-icon"></i>
+    </div>
+
+    <!-- Featured Image -->
+    {{#if feature_image}}
+    <figure class="mb-8">
+        <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="w-full rounded-xl shadow-lg">
+        {{#if feature_image_caption}}
+        <figcaption class="text-center text-sm text-base-content/60 mt-2">{{feature_image_caption}}</figcaption>
+        {{/if}}
+    </figure>
+    {{/if}}
+    {{/if}}
+
+    <!-- Page Content -->
+    <div class="prose prose-lg max-w-none text-base-content">
+        {{{content}}}
+    </div>
+
+    <!-- Page Footer -->
+    <div class="mt-12 pt-8 border-t border-base-300">
+        <!-- Share Buttons -->
+        <div class="flex flex-wrap gap-4 justify-center">
+            <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" target="_blank" class="btn btn-outline">
+                <i class="fab fa-twitter mr-2"></i>Share on Twitter
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}" target="_blank" class="btn btn-outline">
+                <i class="fab fa-linkedin mr-2"></i>Share on LinkedIn
+            </a>
+            <button onclick="navigator.share ? navigator.share({title: '{{title}}', url: window.location.href}) : navigator.clipboard.writeText(window.location.href).then(() => alert('Link copied!'))" class="btn btn-outline">
+                <i class="fas fa-share mr-2"></i>Share
             </button>
         </div>
     </div>
-
-    <!-- Page Content -->
-    <article class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Breadcrumbs -->
-        <div class="breadcrumbs text-sm mb-6">
-            <ul>
-                <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
-                <li>{{title}}</li>
-            </ul>
-        </div>
-
-        <!-- Page Header -->
-        <div class="mb-8">
-            {{#if @page.show_title_and_feature_image}}
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-base-content">{{title}}</h1>
-            
-            <div class="flex items-center gap-4 text-base-content/60 mb-6">
-                <div>
-                    <div class="text-sm">
-                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM DD, YYYY"}}</time>
-                        {{#if updated_at}}
-                        <span class="mx-2">•</span>
-                        <span>Updated {{date updated_at format="MMM DD, YYYY"}}</span>
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-
-            {{#if excerpt}}
-            <div class="alert alert-info mb-6">
-                <i class="fas fa-info-circle"></i>
-                <span class="text-base-content/80">{{excerpt}}</span>
-            </div>
-            {{/if}}
-            {{/if}}
-        </div>
-
-        <!-- Featured Image -->
-        {{#if feature_image}}
-        {{#if @page.show_title_and_feature_image}}
-        <figure class="mb-8">
-            <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="w-full rounded-xl shadow-lg">
-            {{#if feature_image_caption}}
-            <figcaption class="text-center text-sm text-base-content/60 mt-2">{{feature_image_caption}}</figcaption>
-            {{/if}}
-        </figure>
-        {{/if}}
-        {{/if}}
-
-        <!-- Page Content -->
-        <div class="prose prose-lg max-w-none text-base-content">
-            {{content}}
-        </div>
-
-        <!-- Page Footer -->
-        <div class="mt-12 pt-8 border-t border-base-300">
-            <!-- Share Buttons -->
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-twitter mr-2"></i>Share on Twitter
-                </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{url absolute="true"}}" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-linkedin mr-2"></i>Share on LinkedIn
-                </a>
-                <button onclick="navigator.share ? navigator.share({title: '{{title}}', url: window.location.href}) : navigator.clipboard.writeText(window.location.href).then(() => alert('Link copied!'))" class="btn btn-outline">
-                    <i class="fas fa-share mr-2"></i>Share
-                </button>
-            </div>
-        </div>
-    </article>
-
-    <!-- Back to Home -->
-    <div class="text-center py-8">
-        <a href="{{@site.url}}" class="btn btn-primary">
-            <i class="fas fa-arrow-left mr-2"></i>
-            Back to Home
-        </a>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
-        <div>
-            <div class="grid grid-flow-col gap-4">
-                <a href="https://linkedin.com/in/ilia-zhitenev" target="_blank" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="https://github.com/IlyaZh" target="_blank" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="https://t.me/iliazhitenev" target="_blank" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-telegram text-xl"></i>
-                </a>
-                <a href="mailto:ilia.zhitenev@gmail.com" class="btn btn-ghost btn-circle">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
-            </div>
-        </div>
-        <div>
-            <div class="font-bold text-lg">{{@site.title}}</div>
-            <p class="text-base-content/70">Backend Engineer & Blogger</p>
-        </div>
-        <div>
-            <p class="text-base-content/70">© {{date format="YYYY"}} - Available for new opportunities</p>
-        </div>
-    </footer>
-
-    {{!-- Theme Toggle Script --}}
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-
-        // Load saved theme or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        function updateThemeIcon(theme) {
-            if (theme === 'light') {
-                themeIcon.className = 'fas fa-moon text-xl';
-            } else {
-                themeIcon.className = 'fas fa-sun text-xl';
-            }
-        }
-
-        // Mobile menu close functionality
-        function closeMobileMenu() {
-            const dropdown = document.querySelector('.dropdown');
-            if (dropdown) {
-                const checkbox = dropdown.querySelector('[tabindex="0"]');
-                if (checkbox) {
-                    checkbox.blur();
-                }
-            }
-        }
-
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.dropdown-content a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdown = document.querySelector('.dropdown');
-            if (dropdown && !dropdown.contains(event.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close mobile menu with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeMobileMenu();
-            }
-        });
-    </script>
-
-    {{!-- Ghost foot --}}
-    {{ghost_foot}}
-</body>
-</html>
+</article>
+{{/page}}

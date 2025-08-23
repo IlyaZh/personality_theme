@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     
     {{!-- Dynamic title and meta --}}
-    <title>{{meta_title}}</title>
-    <meta name="description" content="{{@site.description}}">
+    <title>{{#is "post"}}{{title}} - {{@site.title}}{{else}}{{#is "page"}}{{title}} - {{@site.title}}{{else}}{{#is "tag"}}{{tag.name}} - {{@site.title}}{{else}}{{#is "author"}}{{primary_author.name}} - {{@site.title}}{{else}}{{meta_title}}{{/is}}{{/is}}{{/is}}{{/is}}</title>
+    <meta name="description" content="{{#if meta_description}}{{meta_description}}{{else}}{{@site.description}}{{/if}}">
     
     {{!-- Open Graph / Facebook --}}
     <meta property="og:type" content="{{#is "post"}}article{{else}}website{{/is}}">
     <meta property="og:title" content="{{meta_title}}">
-    <meta property="og:description" content="{{@site.description}}">
+    <meta property="og:description" content="{{#if meta_description}}{{meta_description}}{{else}}{{@site.description}}{{/if}}">
     <meta property="og:url" content="{{url absolute="true"}}">
     <meta property="og:site_name" content="{{@site.title}}">
     {{#if feature_image}}
@@ -25,7 +25,7 @@
     {{!-- Twitter --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{meta_title}}">
-    <meta name="twitter:description" content="{{@site.description}}">
+    <meta name="twitter:description" content="{{#if meta_description}}{{meta_description}}{{else}}{{@site.description}}{{/if}}">
     {{#if feature_image}}
     <meta name="twitter:image" content="{{img_url feature_image size="l"}}">
     {{else}}
@@ -37,13 +37,9 @@
     {{!-- Canonical URL --}}
     <link rel="canonical" href="{{url absolute="true"}}">
     
-    {{!-- DaisyUI and Tailwind CSS --}}
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     {{!-- Theme styles --}}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     {{!-- Favicon --}}
     <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
@@ -121,6 +117,12 @@
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const dropdown = document.querySelector('.dropdown');
+            
+            // Don't close if clicking on form elements
+            if (event.target.matches('input, textarea, button[type="submit"], .form-control, .form-control *')) {
+                return;
+            }
+            
             if (dropdown && !dropdown.contains(event.target)) {
                 closeMobileMenu();
             }
