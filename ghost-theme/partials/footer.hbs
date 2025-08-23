@@ -1,0 +1,26 @@
+<!-- Footer -->
+<footer class="footer footer-center p-10 bg-base-300 text-base-content">
+    <div>
+        <div class="grid grid-flow-col gap-4">
+            <a href="https://linkedin.com/in/ilia-zhitenev" target="_blank" class="btn btn-ghost btn-circle" aria-label="LinkedIn">
+                <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://github.com/IlyaZh" target="_blank" class="btn btn-ghost btn-circle" aria-label="GitHub">
+                <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="https://t.me/iliazhitenev" target="_blank" class="btn btn-ghost btn-circle" aria-label="Telegram">
+                <i class="fab fa-telegram text-xl"></i>
+            </a>
+            <a href="mailto:ilia.zhitenev@gmail.com" class="btn btn-ghost btn-circle" aria-label="Email">
+                <i class="fas fa-envelope text-xl"></i>
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="font-bold text-lg">{{@site.title}}</div>
+        <p class="text-base-content/70">{{#is "home"}}Software Engineer | Go, C++, Kubernetes, Cloud | Building Scalable Distributed Systems{{else}}Backend Engineer & Blogger{{/is}}</p>
+    </div>
+    <div>
+        <p class="text-base-content/70">© {{date format="YYYY"}} - Available for new opportunities</p>
+    </div>
+</footer>

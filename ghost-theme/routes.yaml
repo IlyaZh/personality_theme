@@ -1,0 +1,21 @@
+routes:
+  # Главная страница - статическая (index.hbs)
+  /:
+    template: index
+
+  # Блог перемещается на /blog (home.hbs)
+  /blog/:
+    template: home
+    controller: channel
+    filter: 'tag:-hash-internal'
+
+collections:
+  # Посты остаются на корневом уровне /{slug}/
+  /:
+    permalink: /{slug}/
+    template: post
+    filter: 'tag:-hash-internal'
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>{{tag.name}} - {{@site.title}}</title>
+    <meta name="description" content="{{tag.description}}">
+    
+    {{!-- DaisyUI and Tailwind CSS --}}
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    {{!-- Theme styles --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+    
+    {{!-- Favicon --}}
+    <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
+    <link rel="alternate icon" href="{{asset 'favicon.ico'}}">
+    <link rel="mask-icon" href="{{asset 'favicon.svg'}}" color="#4f46e5">
+    
+    {{!-- Ghost head --}}
+    {{ghost_head}}
+</head>
+<body class="min-h-screen bg-base-100">
+    <!-- Navigation -->
+    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="{{@site.url}}">Home</a></li>
+                    <li><a href="{{@site.url}}/blog/">All Posts</a></li>
+                    <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
+                    <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
+                    <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
+                    <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
+                </ul>
+            </div>
+            <a href="{{@site.url}}" class="btn btn-ghost text-xl font-bold">{{@site.title}}</a>
+        </div>
+        
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
+                <li><a href="{{@site.url}}/blog/" class="hover:text-primary">All Posts</a></li>
+                <li>
+                    <details>
+                        <summary class="hover:text-primary">Categories</summary>
+                        <ul class="p-2 bg-base-100 rounded-t-none">
+                            <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
+                            <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
+                            <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
+                            <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="navbar-end">
+            <button class="btn btn-ghost btn-circle" id="theme-toggle">
+                <i class="fas fa-moon text-xl" id="theme-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Tag Header -->
+    <section class="hero min-h-[40vh] bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold mb-4">{{tag.name}}</h1>
+                {{#if tag.description}}
+                <p class="text-xl mb-6">{{tag.description}}</p>
+                {{/if}}
+                <div class="stats stats-horizontal bg-white/10 backdrop-blur-sm text-white">
+                    <div class="stat">
+                        <div class="stat-title text-white/70">Posts</div>
+                        <div class="stat-value text-white">{{pagination.total}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breadcrumbs -->
+    <div class="container mx-auto px-4 py-4">
+        <div class="breadcrumbs text-sm">
+            <ul>
+                <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
+                <li><a href="{{@site.url}}/blog/" class="hover:text-primary">Blog</a></li>
+                <li>{{tag.name}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tag Posts -->
+    <section class="py-20 bg-base-100">
+        <div class="container mx-auto px-4">
+            {{#if posts}}
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                {{#foreach posts visibility="public"}}
+                <article class="card bg-base-100 shadow-xl card-hover">
+                    {{#if feature_image}}
+                    <figure class="px-6 pt-6">
+                        <img src="{{img_url feature_image size="m"}}" alt="{{title}}" class="w-full h-48 object-cover rounded-xl">
+                    </figure>
+                    {{else}}
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-file-alt text-4xl text-white"></i>
+                        </div>
+                    </figure>
+                    {{/if}}
+                    <div class="card-body">
+                        <div class="flex items-center justify-between mb-2">
+                            <time class="text-sm text-base-content/60" datetime="{{date format="YYYY-MM-DD"}}">
+                                {{date format="MMM DD, YYYY"}}
+                            </time>
+                        </div>
+                        <h2 class="card-title">
+                            <a href="{{url}}" class="hover:text-primary">{{title}}</a>
+                        </h2>
+                        <p class="text-base-content/70 line-clamp-3">{{excerpt words="20"}}</p>
+                        <div class="card-actions justify-between items-center mt-4">
+                            <div class="flex items-center">
+                                {{#if primary_author.profile_image}}
+                                <div class="avatar">
+                                    <div class="w-6 h-6 rounded-full">
+                                        <img src="{{img_url primary_author.profile_image size="xs"}}" alt="{{primary_author.name}}">
+                                    </div>
+                                </div>
+                                {{/if}}
+                                <span class="text-sm text-base-content/60 ml-2">{{primary_author.name}}</span>
+                                <span class="text-sm text-base-content/40 mx-2">•</span>
+                                <span class="text-sm text-base-content/60">{{reading_time}}</span>
+                            </div>
+                            <a href="{{url}}" class="btn btn-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+
+            {{!-- Pagination --}}
+            {{#if pagination}}
+            <div class="flex justify-center mt-16">
+                <div class="join">
+                    {{#if pagination.prev}}
+                    <a href="{{page_url pagination.prev}}" class="join-item btn">«</a>
+                    {{else}}
+                    <button class="join-item btn btn-disabled">«</button>
+                    {{/if}}
+                    
+                    {{#foreach pagination.pages}}
+                    {{#if current}}
+                    <button class="join-item btn btn-active">{{page}}</button>
+                    {{else}}
+                    <a href="{{page_url page}}" class="join-item btn">{{page}}</a>
+                    {{/if}}
+                    {{/foreach}}
+                    
+                    {{#if pagination.next}}
+                    <a href="{{page_url pagination.next}}" class="join-item btn">»</a>
+                    {{else}}
+                    <button class="join-item btn btn-disabled">»</button>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+
+            {{else}}
+            <div class="text-center py-20">
+                <i class="fas fa-file-alt text-6xl text-base-content/30 mb-4"></i>
+                <h3 class="text-2xl font-bold text-base-content mb-2">No posts in this category yet</h3>
+                <p class="text-base-content/70">Check back soon for new content!</p>
+            </div>
+            {{/if}}
+        </div>
+    </section>
+
+    <!-- Back to Blog -->
+    <div class="text-center py-8">
+        <a href="{{@site.url}}/blog/" class="btn btn-primary">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Blog
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
+        <div>
+            <div class="grid grid-flow-col gap-4">
+                <a href="https://linkedin.com/in/ilia-zhitenev" target="_blank" class="btn btn-ghost btn-circle">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://github.com/IlyaZh" target="_blank" class="btn btn-ghost btn-circle">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="https://t.me/iliazhitenev" target="_blank" class="btn btn-ghost btn-circle">
+                    <i class="fab fa-telegram text-xl"></i>
+                </a>
+                <a href="mailto:ilia.zhitenev@gmail.com" class="btn btn-ghost btn-circle">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+        <div>
+            <div class="font-bold text-lg">{{@site.title}}</div>
+            <p class="text-base-content/70">Backend Engineer & Blogger</p>
+        </div>
+        <div>
+            <p class="text-base-content/70">© {{date format="YYYY"}} - Available for new opportunities</p>
+        </div>
+    </footer>
+
+    {{!-- Theme Toggle Script --}}
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // Load saved theme or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.className = 'fas fa-moon text-xl';
+            } else {
+                themeIcon.className = 'fas fa-sun text-xl';
+            }
+        }
+
+        // Mobile menu close functionality
+        function closeMobileMenu() {
+            const dropdown = document.querySelector('.dropdown');
+            if (dropdown) {
+                const checkbox = dropdown.querySelector('[tabindex="0"]');
+                if (checkbox) {
+                    checkbox.blur();
+                }
+            }
+        }
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.dropdown-content a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            if (dropdown && !dropdown.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>
+
+    {{!-- Ghost foot --}}
+    {{ghost_foot}}
+</body>
+</html>
