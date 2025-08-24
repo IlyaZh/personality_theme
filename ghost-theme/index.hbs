@@ -370,13 +370,24 @@
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="space-y-8">
                         <div class="flex items-center space-x-4">
+                            <div class="btn btn-circle btn-success">
+                                <i class="fas fa-file-pdf text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-base-content">Resume</h3>
+                                <p class="text-base-content/70">
+                                    <a href="{{asset 'resume-ilia-zhitenev.pdf'}}" target="_blank" class="link link-hover">Download PDF Resume</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
                             <div class="btn btn-circle btn-primary">
                                 <i class="fas fa-envelope text-xl"></i>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-base-content">Email</h3>
                                 <p class="text-base-content/70">
-                                    me@iliazhitenev.dev
+                                    <a href="mailto:me@iliazhitenev.dev" class="link link-hover" target="_blank">me@iliazhitenev.dev</a>
                                 </p>
                             </div>
                         </div>
@@ -422,17 +433,6 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="btn btn-circle btn-success">
-                                <i class="fas fa-file-pdf text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-base-content">Resume</h3>
-                                <p class="text-base-content/70">
-                                    <a href="{{asset 'resume-ilia-zhitenev.pdf'}}" target="_blank" class="link link-hover">Download PDF Resume</a>
-                                </p>
-                            </div>
-                        </div>
                     </div>
                     <div class="card bg-base-200 shadow-xl">
                         <div class="card-body">
@@ -458,27 +458,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer footer-center p-10 bg-base-200 text-base-content">
-        <aside>
-            <p class="font-bold text-lg">Ilia Zhitenev</p>
-            <p>Software Engineer | Go, C++, Kubernetes, Cloud | Building Scalable Distributed Systems</p>
-            <p class="text-sm opacity-70">© 2024 - All rights reserved</p>
-        </aside>
-        <nav>
-            <div class="grid grid-flow-col gap-4">
-                <a href="#" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-github text-2xl"></i>
-                </a>
-                <a href="#" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-linkedin text-2xl"></i>
-                </a>
-                <a href="#" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-telegram text-2xl"></i>
-                </a>
-            </div>
-        </nav>
-    </footer>
+    {{> footer}}
 
     <script>
         // Theme toggle functionality
@@ -489,22 +469,31 @@
         // Load saved theme or default to light
         const currentTheme = localStorage.getItem('theme') || 'light';
         html.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
+        
+        if (themeIcon) {
+            updateThemeIcon(currentTheme);
+        }
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                if (themeIcon) {
+                    updateThemeIcon(newTheme);
+                }
+            });
+        }
 
         function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.className = 'fas fa-sun text-xl';
-            } else {
-                themeIcon.className = 'fas fa-moon text-xl';
+            if (themeIcon) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun text-xl';
+                } else {
+                    themeIcon.className = 'fas fa-moon text-xl';
+                }
             }
         }
 
@@ -565,6 +554,8 @@
             });
         });
     </script>
+
+
 
     {{!-- Ghost foot --}}
     {{ghost_foot}}

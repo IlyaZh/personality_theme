@@ -8,13 +8,27 @@ routes:
     template: home
     controller: channel
     filter: 'tag:-hash-internal'
+  /main/:
+    controller: channel
+    filter: tag:[Blog]
+  /growth/:
+    controller: channel
+    filter: tag:[Growth]
+  /projects/:
+    controller: channel
+    filter: tag:[Projects]
+
 
 collections:
+  /thoughts/:
+    permalink: /thoughts/{slug}/
+    template: index
+    filter: primary_tag:[thoughts]
   # Посты остаются на корневом уровне /{slug}/
   /:
     permalink: /{slug}/
     template: post
-    filter: 'tag:-hash-internal'
+    filter: 'tag:-hash-internal,primary_tag:-[thoughts]'
 
 taxonomies:
   tag: /tag/{slug}/

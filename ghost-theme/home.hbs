@@ -45,10 +45,95 @@
         </div>
     </section>
 
-    <!-- Category Filters -->
-    <section class="py-8 bg-base-200">
+
+
+    <!-- Featured Posts Section -->
+    {{#get "posts" filter="featured:true" limit="3" as |featured_posts|}}
+    {{#if featured_posts}}
+    <section class="py-16 bg-base-200">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-base-content">Featured Posts</h2>
+                <p class="text-base-content/70 max-w-2xl mx-auto">
+                    Highlighted articles and most popular content that you shouldn't miss.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {{#foreach featured_posts}}
+                <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                    {{#if feature_image}}
+                    <figure class="relative">
+                        <img src="{{img_url feature_image size="m"}}" alt="{{title}}" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <div class="badge badge-primary badge-lg">
+                                <i class="fas fa-star mr-1"></i>
+                                Featured
+                            </div>
+                        </div>
+                    </figure>
+                    {{else}}
+                    <figure class="bg-gradient-to-br from-primary to-secondary h-48 flex items-center justify-center relative">
+                        <i class="fas fa-file-alt text-6xl text-white opacity-50"></i>
+                        <div class="absolute top-4 left-4">
+                            <div class="badge badge-accent badge-lg">
+                                <i class="fas fa-star mr-1"></i>
+                                Featured
+                            </div>
+                        </div>
+                    </figure>
+                    {{/if}}
+                    
+                    <div class="card-body">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            {{#foreach tags limit="2" visibility="public"}}
+                            <a href="{{url}}" class="badge badge-outline badge-sm hover:badge-primary">{{name}}</a>
+                            {{/foreach}}
+                        </div>
+                        
+                        <h3 class="card-title text-lg mb-3 line-clamp-2">
+                            <a href="{{url}}" class="hover:text-primary transition-colors">{{title}}</a>
+                        </h3>
+                        
+                        <p class="text-base-content/70 text-sm mb-4 line-clamp-3">{{excerpt words="20"}}</p>
+                        
+                        <div class="flex items-center justify-between text-sm text-base-content/60 mb-4">
+                            <div class="flex items-center gap-2">
+                                {{#if primary_author.profile_image}}
+                                <div class="avatar">
+                                    <div class="w-6 h-6 rounded-full">
+                                        <img src="{{img_url primary_author.profile_image size="xs"}}" alt="{{primary_author.name}}">
+                                    </div>
+                                </div>
+                                {{/if}}
+                                <span>{{primary_author.name}}</span>
+                            </div>
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMM DD, YYYY"}}</time>
+                        </div>
+                        
+                        <div class="card-actions justify-between items-center">
+                            <div class="text-xs text-base-content/50">
+                                {{reading_time}}
+                            </div>
+                            <a href="{{url}}" class="btn btn-primary btn-sm">
+                                Read More
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                {{/foreach}}
+            </div>
+        </div>
+    </section>
+    {{/if}}
+    {{/get}}
+
+    <!-- Blog Posts -->
+    <section class="py-20 bg-base-100">
+        <div class="container mx-auto px-4">
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <a href="{{@site.url}}/blog/" class="btn btn-primary">
                     <i class="fas fa-list mr-2"></i>
                     All Posts
@@ -70,12 +155,7 @@
                     Thoughts
                 </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Blog Posts -->
-    <section class="py-20 bg-base-100">
-        <div class="container mx-auto px-4">
+            
             {{#if posts}}
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
                 {{#foreach posts visibility="public"}}
@@ -183,6 +263,71 @@
         </div>
     </section>
 
+    <!-- Recommendations Section -->
+    {{#match @site.recommendations_enabled}}
+    <section class="py-16 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-base-content">Recommended Reading</h2>
+                <p class="text-base-content/70 max-w-2xl mx-auto">
+                    Discover other great blogs and resources that I recommend for software engineers and tech enthusiasts.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
+                {{#recommendations limit="6"}}
+                <div class="card bg-base-200 hover:bg-base-300 transition-colors duration-200 shadow-md hover:shadow-lg">
+                    <div class="card-body p-6">
+                        <div class="flex items-start gap-4">
+                            {{#if favicon}}
+                            <div class="avatar">
+                                <div class="w-12 h-12 rounded-lg overflow-hidden bg-base-300">
+                                    <img src="{{favicon}}" alt="{{title}}" loading="lazy" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg\'>' + '{{title}}'.charAt(0).toUpperCase() + '</div>'"
+                                </div>
+                            </div>
+                            {{else}}
+                            <div class="avatar">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg" data-title="{{title}}">
+                                    ?
+                                </div>
+                            </div>
+                            {{/if}}
+                            
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-semibold text-base-content mb-1 line-clamp-2">{{title}}</h3>
+                                <p class="text-sm text-base-content/60 mb-2">{{readable_url url}}</p>
+                                {{#if description}}
+                                <p class="text-sm text-base-content/70 line-clamp-2">{{description}}</p>
+                                {{/if}}
+                            </div>
+                        </div>
+                        
+                        <div class="card-actions justify-end mt-4">
+                            <a href="{{url}}" data-recommendation="{{id}}" target="_blank" rel="noopener"
+                               class="btn btn-primary btn-sm hover:scale-105 transition-transform duration-200">
+                                <i class="fas fa-external-link-alt mr-1"></i>
+                                Visit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/recommendations}}
+            </div>
+            
+            <!-- Show all recommendations button -->
+            <div class="text-center">
+                <button data-portal="recommendations" 
+                        class="btn btn-outline btn-lg hover:btn-primary transition-all duration-200">
+                    <i class="fas fa-list mr-2"></i>
+                    Show All Recommendations
+                </button>
+            </div>
+        </div>
+    </section>
+    {{/match}}
+
     <!-- Newsletter Section -->
     <section class="py-20 bg-base-200">
         <div class="container mx-auto px-4">
@@ -265,7 +410,17 @@
                 closeMobileMenu();
             }
         });
+
+        // Initialize recommendation fallback avatars
+        document.querySelectorAll('[data-title]').forEach(function(element) {
+            const title = element.getAttribute('data-title');
+            if (title && title.length > 0) {
+                element.textContent = title.charAt(0).toUpperCase();
+            }
+        });
     </script>
+
+
 
     {{!-- Ghost foot --}}
     {{ghost_foot}}
