@@ -19,51 +19,7 @@
     {{ghost_head}}
 </head>
 <body class="min-h-screen bg-base-100">
-    <!-- Navigation -->
-    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
-        <div class="navbar-start">
-            <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
-                    </svg>
-                </div>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="{{@site.url}}">Home</a></li>
-                    <li><a href="{{@site.url}}/blog/">All Posts</a></li>
-                    <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
-                    <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
-                    <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
-                    <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
-                </ul>
-            </div>
-            <a href="{{@site.url}}" class="btn btn-ghost text-xl font-bold">{{@site.title}}</a>
-        </div>
-        
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
-                <li><a href="{{@site.url}}/blog/" class="hover:text-primary">All Posts</a></li>
-                <li>
-                    <details>
-                        <summary class="hover:text-primary">Categories</summary>
-                        <ul class="p-2 bg-base-100 rounded-t-none">
-                            <li><a href="{{@site.url}}/tag/blog/">Blog</a></li>
-                            <li><a href="{{@site.url}}/tag/growth/">Growth</a></li>
-                            <li><a href="{{@site.url}}/tag/projects/">Projects</a></li>
-                            <li><a href="{{@site.url}}/tag/thoughts/">Thoughts</a></li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="navbar-end">
-            <button class="btn btn-ghost btn-circle" id="theme-toggle">
-                <i class="fas fa-moon text-xl" id="theme-icon"></i>
-            </button>
-        </div>
-    </div>
+    {{> navigation}}
 
     <!-- Hero Section -->
     <section class="hero min-h-[40vh] bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
@@ -242,32 +198,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer footer-center p-10 bg-base-300 text-base-content">
-        <div>
-            <div class="grid grid-flow-col gap-4">
-                <a href="https://linkedin.com/in/ilia-zhitenev" target="_blank" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="https://github.com/IlyaZh" target="_blank" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="https://t.me/iliazhitenev" target="_blank" class="btn btn-ghost btn-circle">
-                    <i class="fab fa-telegram text-xl"></i>
-                </a>
-                <a href="mailto:me@iliazhitenev.dev" class="btn btn-ghost btn-circle">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
-            </div>
-        </div>
-        <div>
-            <div class="font-bold text-lg">{{@site.title}}</div>
-            <p class="text-base-content/70">Software Engineer | Go, C++, Kubernetes, Cloud | Building Scalable Distributed Systems</p>
-        </div>
-        <div>
-            <p class="text-base-content/70">© {{date format="YYYY"}} - All rights reserved</p>
-        </div>
-    </footer>
+    {{> footer}}
 
     {{!-- Theme Toggle Script --}}
     <script>
