@@ -10,8 +10,8 @@
             <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a href="{{@site.url}}">Home</a></li>
                 <li><a href="{{@site.url}}/blog/">All Posts</a></li>
-                {{#if navigation}}
-                {{#foreach navigation}}
+                {{#if @site.navigation}}
+                {{#foreach @site.navigation}}
                 <li><a href="{{url absolute="true"}}" {{#if current}}class="text-primary"{{/if}}>{{label}}</a></li>
                 {{/foreach}}
                 {{/if}}
@@ -30,12 +30,12 @@
         <ul class="menu menu-horizontal px-1">
             <li><a href="{{@site.url}}" class="hover:text-primary">Home</a></li>
             <li><a href="{{@site.url}}/blog/" class="hover:text-primary {{#is "home"}}text-primary{{/is}}">All Posts</a></li>
-            {{#if navigation}}
+            {{#if @site.navigation}}
             <li>
                 <details>
                     <summary class="hover:text-primary {{#is "tag"}}text-primary{{/is}}">Categories</summary>
                     <ul class="p-2 bg-base-100 rounded-t-none">
-                        {{#foreach navigation}}
+                        {{#foreach @site.navigation}}
                         <li><a href="{{url absolute="true"}}" {{#if current}}class="text-primary"{{/if}}>{{label}}</a></li>
                         {{/foreach}}
                     </ul>

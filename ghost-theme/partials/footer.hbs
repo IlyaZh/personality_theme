@@ -16,6 +16,17 @@
             </a>
         </div>
     </div>
+    
+    {{#if @site.secondary_navigation}}
+    <div>
+        <div class="flex flex-wrap justify-center gap-6">
+            {{#foreach @site.secondary_navigation}}
+            <a href="{{url absolute="true"}}" class="link link-hover text-base-content/80 hover:text-primary">{{label}}</a>
+            {{/foreach}}
+        </div>
+    </div>
+    {{/if}}
+    
     <div>
         <div class="font-bold text-lg">{{@site.title}}</div>
         <p class="text-base-content/70">{{#is "index"}}Software Engineer | Go, C++, Kubernetes, Cloud | Building Scalable Distributed Systems{{else}}Software Engineer | Go, C++, Kubernetes, Cloud | Building Scalable Distributed Systems{{/is}}</p>
