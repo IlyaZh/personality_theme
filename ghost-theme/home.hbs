@@ -334,10 +334,38 @@
             <div class="max-w-2xl mx-auto text-center">
                 <h2 class="text-3xl font-bold mb-4 text-base-content">Stay Updated</h2>
                 <p class="text-base-content/70 mb-8">Get notified about new posts and updates. No spam, unsubscribe at any time.</p>
-                <div class="join w-full max-w-md mx-auto">
-                    <input class="input input-bordered join-item flex-1" placeholder="Enter your email" type="email">
-                    <button class="btn btn-primary join-item">Subscribe</button>
+                
+                <!-- Ghost Subscription Form -->
+                <div class="max-w-md mx-auto">
+                    <form data-members-form="subscribe" class="join w-full">
+                        <input 
+                            class="input input-bordered join-item flex-1" 
+                            placeholder="Enter your email" 
+                            type="email" 
+                            name="email" 
+                            required 
+                            data-members-email>
+                        <button 
+                            class="btn btn-primary join-item" 
+                            type="submit">
+                            <span class="loading loading-spinner loading-xs hidden" data-members-loading></span>
+                            <span data-members-label>Subscribe</span>
+                        </button>
+                    </form>
+                    
+                    <!-- Success Message -->
+                    <div class="alert alert-success mt-4 hidden" data-members-success>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Great! Check your email for a confirmation link.</span>
+                    </div>
+                    
+                    <!-- Error Message -->
+                    <div class="alert alert-error mt-4 hidden" data-members-error>
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span data-members-error-message>Something went wrong. Please try again.</span>
+                    </div>
                 </div>
+                
                 <p class="text-xs text-base-content/50 mt-4">By subscribing, you agree to receive updates about new posts and software engineering insights.</p>
             </div>
         </div>
@@ -420,7 +448,69 @@
         });
     </script>
 
+    <script>
+    // Ghost Members Subscription Form
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('[data-members-form="subscribe"]');
+        if (!form) return;
 
+        const emailInput = form.querySelector('[data-members-email]');
+        const submitButton = form.querySelector('button[type="submit"]');
+        const loadingSpinner = form.querySelector('[data-members-loading]');
+        const submitLabel = form.querySelector('[data-members-label]');
+        const successMessage = document.querySelector('[data-members-success]');
+        const errorMessage = document.querySelector('[data-members-error]');
+        const errorMessageText = document.querySelector('[data-members-error-message]');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            if (!email) return;
+
+            // Show loading state
+            if (loadingSpinner) loadingSpinner.classList.remove('hidden');
+            if (submitLabel) submitLabel.textContent = 'Subscribing...';
+            if (submitButton) submitButton.disabled = true;
+            
+            // Hide previous messages
+            if (successMessage) successMessage.classList.add('hidden');
+            if (errorMessage) errorMessage.classList.add('hidden');
+
+            try {
+                const response = await fetch('/members/api/send-magic-link/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        emailType: 'subscribe'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Show success message
+                    if (successMessage) successMessage.classList.remove('hidden');
+                    emailInput.value = '';
+                } else {
+                    throw new Error(result.errors?.[0]?.message || 'Subscription failed');
+                }
+            } catch (error) {
+                // Show error message
+                if (errorMessage) errorMessage.classList.remove('hidden');
+                if (errorMessageText) errorMessageText.textContent = error.message;
+            } finally {
+                // Reset loading state
+                if (loadingSpinner) loadingSpinner.classList.add('hidden');
+                if (submitLabel) submitLabel.textContent = 'Subscribe';
+                if (submitButton) submitButton.disabled = false;
+            }
+        });
+    });
+    </script>
 
     {{!-- Ghost foot --}}
     {{ghost_foot}}
