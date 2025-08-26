@@ -226,7 +226,8 @@
                 {{/foreach}}
             </div>
 
-            {{!-- Pagination --}}
+            {{!-- Pagination - COMMENTED OUT FOR FUTURE USE --}}
+            {{!-- 
             {{#if pagination}}
             <div class="flex justify-center mt-16">
                 <div class="join">
@@ -251,6 +252,62 @@
                     {{/if}}
                 </div>
             </div>
+            {{/if}}
+            --}}
+
+            {{!-- SEO-Friendly Simple Pagination --}}
+            {{#if pagination}}
+            <div class="flex justify-center items-center mt-16">
+                <div class="join">
+                    <!-- Previous Button -->
+                    {{#if pagination.prev}}
+                    <a href="{{page_url pagination.prev}}" class="join-item btn btn-outline" title="Previous page" rel="prev">
+                        <i class="fas fa-chevron-left mr-1"></i>
+                        <span class="hidden sm:inline">Previous</span>
+                    </a>
+                    {{else}}
+                    <button class="join-item btn btn-disabled" title="No previous page">
+                        <i class="fas fa-chevron-left mr-1"></i>
+                        <span class="hidden sm:inline">Previous</span>
+                    </button>
+                    {{/if}}
+                    
+                    <!-- Previous page number -->
+                    {{#if pagination.prev}}
+                    <a href="{{page_url pagination.prev}}" class="join-item btn btn-outline">{{pagination.prev}}</a>
+                    {{/if}}
+                    
+                    <!-- Current page -->
+                    <button class="join-item btn btn-primary" aria-current="page">{{pagination.page}}</button>
+                    
+                    <!-- Next page number -->
+                    {{#if pagination.next}}
+                    <a href="{{page_url pagination.next}}" class="join-item btn btn-outline">{{pagination.next}}</a>
+                    {{/if}}
+                    
+                    <!-- Next Button -->
+                    {{#if pagination.next}}
+                    <a href="{{page_url pagination.next}}" class="join-item btn btn-outline" title="Next page" rel="next">
+                        <span class="hidden sm:inline">Next</span>
+                        <i class="fas fa-chevron-right ml-1"></i>
+                    </a>
+                    {{else}}
+                    <button class="join-item btn btn-disabled" title="No next page">
+                        <span class="hidden sm:inline">Next</span>
+                        <i class="fas fa-chevron-right ml-1"></i>
+                    </button>
+                    {{/if}}
+                </div>
+            </div>
+            
+            <!-- Page Info -->
+            {{#if pagination.total}}
+            <div class="text-center mt-4">
+                <p class="text-sm text-base-content/60">
+                    Page {{pagination.page}} of {{pagination.pages}} • {{pagination.total}} posts total
+                </p>
+            </div>
+            {{/if}}
             {{/if}}
 
             {{else}}
