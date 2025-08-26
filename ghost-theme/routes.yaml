@@ -4,34 +4,31 @@ routes:
     template: index
 
   # Блог перемещается на /blog (home.hbs)
-  /blog/:
+  /blog/main/:
     template: home
     controller: channel
-    filter: 'tag:-hash-internal,primary_tag:-[thoughts]'
-  /main/:
-    controller: channel
     filter: tag:[Blog]
-  /growth/:
+  /blog/growth/:
+    template: home
     controller: channel
     filter: tag:[Growth]
-  /projects/:
+  /blog/projects/:
+    template: home
     controller: channel
     filter: tag:[Projects]
-  # /thoughts/:
-  #   controller: channel
-  #   filter: tag:[thoughts]
 
 
 collections:
-  /thoughts/:
+  /blog/thoughts/:
     permalink: /thoughts/{slug}/
-    template: index
+    # template: index
+    template: home
     filter: primary_tag:[thoughts]
   # Посты остаются на корневом уровне /{slug}/
   /blog/:
     permalink: /{slug}/
-    template: post
-    filter: 'tag:-hash-internal,primary_tag:-[thoughts]'
+    template: home
+    filter: 'primary_tag:-[thoughts]'
 
 taxonomies:
   tag: /tag/{slug}/
