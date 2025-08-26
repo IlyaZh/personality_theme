@@ -12,7 +12,7 @@
                 <li><a href="{{@site.url}}/blog/">All Posts</a></li>
                 {{#if @site.navigation}}
                 {{#foreach @site.navigation}}
-                <li><a href="{{url absolute="true"}}" {{#if current}}class="text-primary"{{/if}}>{{label}}</a></li>
+                <li><a href="{{this.url}}" {{#if current}}class="text-primary"{{/if}} title="{{label}}">{{label}}</a></li>
                 {{/foreach}}
                 {{/if}}
                 <li class="border-t pt-2 mt-2">
@@ -36,7 +36,7 @@
                     <summary class="hover:text-primary {{#is "tag"}}text-primary{{/is}}">Categories</summary>
                     <ul class="p-2 bg-base-100 rounded-t-none">
                         {{#foreach @site.navigation}}
-                        <li><a href="{{url absolute="true"}}" {{#if current}}class="text-primary"{{/if}}>{{label}}</a></li>
+                        <li><a href="{{this.url}}" {{#if current}}class="text-primary"{{/if}} title="URL: {{this.url}}">{{label}}</a></li>
                         {{/foreach}}
                     </ul>
                 </details>

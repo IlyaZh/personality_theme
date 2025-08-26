@@ -7,7 +7,7 @@ routes:
   /blog/:
     template: home
     controller: channel
-    filter: 'tag:-hash-internal'
+    filter: 'tag:-hash-internal,primary_tag:-[thoughts]'
   /main/:
     controller: channel
     filter: tag:[Blog]
@@ -17,6 +17,9 @@ routes:
   /projects/:
     controller: channel
     filter: tag:[Projects]
+  # /thoughts/:
+  #   controller: channel
+  #   filter: tag:[thoughts]
 
 
 collections:
@@ -25,7 +28,7 @@ collections:
     template: index
     filter: primary_tag:[thoughts]
   # Посты остаются на корневом уровне /{slug}/
-  /:
+  /blog/:
     permalink: /{slug}/
     template: post
     filter: 'tag:-hash-internal,primary_tag:-[thoughts]'
