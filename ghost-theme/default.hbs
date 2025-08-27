@@ -153,7 +153,22 @@
         });
     </script>
 
-
+    {{!-- Ghost Search --}}
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="{{@site.content_api_key}}" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="{{@site.url}}" crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            if (window.sodoSearch) {
+                window.sodoSearch.init({
+                    key: '{{@site.content_api_key}}',
+                    url: '{{@site.url}}',
+                    trigger: '[data-ghost-search]',
+                    styles: {
+                        accent: 'hsl(var(--p))'
+                    }
+                });
+            }
+        });
+    </script>
 
     {{!-- Ghost foot --}}
     {{ghost_foot}}
