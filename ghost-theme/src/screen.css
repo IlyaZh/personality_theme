@@ -730,6 +730,20 @@ html, body {
     overflow: hidden;
 }
 
+/* Tag badges responsive improvements */
+.badge {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 640px) {
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .kg-width-wide {

@@ -86,9 +86,9 @@
                     {{/if}}
                     
                     <div class="card-body">
-                        <div class="flex flex-wrap gap-2 mb-3">
+                        <div class="flex flex-wrap gap-2 mb-3 max-w-full overflow-hidden">
                             {{#foreach tags limit="2" visibility="public"}}
-                            <a href="{{url}}" class="badge badge-outline badge-sm hover:badge-primary">{{name}}</a>
+                            <a href="{{url}}" class="badge badge-outline badge-sm hover:badge-primary whitespace-nowrap flex-shrink-0">{{name}}</a>
                             {{/foreach}}
                         </div>
                         
@@ -204,12 +204,12 @@
                     <div class="card-body">
                         <div class="flex items-center justify-between mb-2">
                             {{#if tags}}
-                            <div class="flex gap-2">
+                            <div class="flex gap-2 max-w-full overflow-hidden">
                                 {{#foreach tags limit="2" visibility="public"}}
                                 {{#if @first}}
-                                <div class="badge badge-primary">{{name}}</div>
+                                <div class="badge badge-primary whitespace-nowrap flex-shrink-0">{{name}}</div>
                                 {{else}}
-                                <div class="badge badge-outline">{{name}}</div>
+                                <div class="badge badge-outline whitespace-nowrap flex-shrink-0">{{name}}</div>
                                 {{/if}}
                                 {{/foreach}}
                             </div>
