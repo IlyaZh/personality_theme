@@ -44,16 +44,19 @@
                 "width": 150
             },
             "s": {
-                "width": 300
+                "width": 400
             },
             "m": {
-                "width": 600
+                "width": 750
             },
             "l": {
-                "width": 1000
+                "width": 960
             },
             "xl": {
-                "width": 2000
+                "width": 1140
+            },
+            "xxl": {
+                "width": 1920
             }
         },
         "card_assets": {
@@ -104,6 +107,9 @@
                 "type": "boolean",
                 "default": true,
                 "group": "footer"
+            },
+            "personal_photo": {
+                "type": "image"
             }
         }
     },

@@ -93,7 +93,11 @@
             <div class="max-w-md">
                 <div class="avatar mb-8">
                     <div class="w-48 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
-                        <img src="{{asset 'images/profile.jpg'}}" alt="Ilia Zhitenev" />
+                        {{#if @custom.personal_photo}}
+                            <img src="{{img_url @custom.personal_photo size="m"}}" alt="Ilia Zhitenev" />
+                        {{else}}
+                            <img src="{{asset 'images/profile.jpg'}}" alt="Ilia Zhitenev" />
+                        {{/if}}
                     </div>
                 </div>
                 <h1 class="text-5xl font-bold mb-4">Ilia Zhitenev</h1>
