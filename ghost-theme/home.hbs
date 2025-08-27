@@ -139,9 +139,9 @@
                 <h2 class="text-3xl font-bold text-base-content mb-4 sm:mb-0">Latest Posts</h2>
                 <div class="flex items-center gap-4">
                     <!-- Search Button -->
-                    <button class="btn btn-outline btn-circle" data-ghost-search>
+                    {{!-- <button class="btn btn-outline btn-circle" data-ghost-search>
                         <i class="fas fa-search"></i>
-                    </button>
+                    </button> --}}
                 </div>
             </div>
             
@@ -154,19 +154,19 @@
                 </a>
                 
                 {{!-- Category buttons - use JavaScript for active state --}}
-                <a href="{{@site.url}}/tag/mainstream/" class="btn btn-outline category-btn" data-category="mainstream">
+                <a href="{{@site.url}}/blog/mainstream/" class="btn btn-outline category-btn" data-category="mainstream">
                     <i class="fas fa-newspaper mr-2"></i>
                     Mainstream
                 </a>
-                <a href="{{@site.url}}/tag/growth/" class="btn btn-outline category-btn" data-category="growth">
+                <a href="{{@site.url}}/blog/growth/" class="btn btn-outline category-btn" data-category="growth">
                     <i class="fas fa-chart-line mr-2"></i>
                     Growth
                 </a>
-                <a href="{{@site.url}}/tag/projects/" class="btn btn-outline category-btn" data-category="projects">
+                <a href="{{@site.url}}/blog/projects/" class="btn btn-outline category-btn" data-category="projects">
                     <i class="fas fa-tools mr-2"></i>
                     Projects
                 </a>
-                <a href="{{@site.url}}/tag/thoughts/" class="btn btn-outline category-btn" data-category="thoughts">
+                <a href="{{@site.url}}/blog/thoughts/" class="btn btn-outline category-btn" data-category="thoughts">
                     <i class="fas fa-lightbulb mr-2"></i>
                     Thoughts
                 </a>
@@ -583,6 +583,55 @@
             }
         });
     });
+    </script>
+
+
+    
+    <script>
+        // Set active navigation for blog pages
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            
+            // Check if we're on a category page (not main blog page)
+            if (currentPath.startsWith('/blog/') && currentPath !== '/blog/' && currentPath !== '/blog') {
+                // Get the category name from the URL (e.g., "growth" from "/blog/growth/")
+                const categoryName = currentPath.split('/')[2];
+                
+                // Find and highlight the specific category button
+                const categoryButtons = document.querySelectorAll('.category-btn');
+                categoryButtons.forEach(button => {
+                    if (button.dataset.category === categoryName) {
+                        button.classList.remove('btn-outline');
+                        button.classList.add('btn-primary');
+                    } else {
+                        // Make sure other buttons are not active
+                        button.classList.remove('btn-primary');
+                        button.classList.add('btn-outline');
+                    }
+                });
+                
+                // Make sure "All Posts" button is not active on category pages
+                const allPostsButton = document.querySelector('a[href*="/blog/"][class*="btn"]');
+                if (allPostsButton && allPostsButton.textContent.includes('All Posts')) {
+                    allPostsButton.classList.remove('btn-primary');
+                    allPostsButton.classList.add('btn-outline');
+                }
+            } else if ((currentPath === '/blog/' || currentPath === '/blog')) {
+                // Activate "All Posts" button
+                const allPostsButton = document.querySelector('a[href*="/blog/"][class*="btn"]');
+                if (allPostsButton && allPostsButton.textContent.includes('All Posts')) {
+                    allPostsButton.classList.remove('btn-outline');
+                    allPostsButton.classList.add('btn-primary');
+                }
+                
+                // Make sure category buttons are not active
+                const categoryButtons = document.querySelectorAll('.category-btn');
+                categoryButtons.forEach(button => {
+                    button.classList.remove('btn-primary');
+                    button.classList.add('btn-outline');
+                });
+            }
+        });
     </script>
 
     {{!-- Ghost foot --}}

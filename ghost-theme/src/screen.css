@@ -839,3 +839,19 @@ html, body {
         page-break-inside: avoid;
     }
 }
+
+/* Navigation active states */
+.blog-link.text-primary,
+.navbar .menu a.text-primary,
+.navbar .menu summary.text-primary {
+    color: #4f46e5 !important;
+    font-weight: 600 !important;
+    background-color: rgba(79, 70, 229, 0.1) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+/* Ensure hover states work properly */
+.navbar .menu a:hover {
+    color: #4f46e5;
+}
