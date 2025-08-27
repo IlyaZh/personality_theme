@@ -4,18 +4,18 @@ routes:
     template: index
 
   # Блог перемещается на /blog (home.hbs)
-  /blog/main/:
+  /blog/mainstream/:
     template: home
     controller: channel
-    filter: tag:[Blog]
+    filter: primary_tag:[mainstream]
   /blog/growth/:
     template: home
     controller: channel
-    filter: tag:[Growth]
+    filter: primary_tag:[growth]
   /blog/projects/:
     template: home
     controller: channel
-    filter: tag:[Projects]
+    filter: primary_tag:[projects]
 
 
 collections:
