@@ -48,6 +48,7 @@
 
 
     <!-- Featured Posts Section -->
+    {{#if @custom.show_featured_posts}}
     {{#get "posts" filter="featured:true" limit="3" as |featured_posts|}}
     {{#if featured_posts}}
     <section class="py-16 bg-base-200">
@@ -128,6 +129,7 @@
     </section>
     {{/if}}
     {{/get}}
+    {{/if}}
 
     <!-- Blog Posts -->
     <section class="py-20 bg-base-100">

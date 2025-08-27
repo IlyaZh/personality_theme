@@ -1,132 +1,190 @@
 # Ilia Zhitenev Ghost Theme
 
-Custom Ghost theme that provides a static homepage with resume and moves the blog to `/blog/` route.
+A modern, responsive Ghost theme with static homepage and blog functionality. Features dark/light theme switching, comprehensive content block support, and extensive customization options.
 
 ## Features
 
-- **Static Homepage** - Resume/portfolio page at `/`
-- **Blog at /blog** - All blog posts accessible via `/blog/`
-- **Individual Posts** - Posts remain at root level `/{post-slug}/`
-- **Responsive Design** - Built with DaisyUI and Tailwind CSS
-- **Dark/Light Theme** - Theme switching with localStorage persistence
-- **SEO Optimized** - Proper meta tags and Ghost SEO features
-
-## URL Structure
-
-- `/` - Static homepage (resume/portfolio)
-- `/blog/` - Blog posts listing
-- `/{post-slug}/` - Individual blog posts
-- `/tag/{tag-slug}/` - Tag pages
-- `/author/{author-slug}/` - Author pages
+- **Static Homepage** - Resume/portfolio page at root (`/`)
+- **Blog at `/blog/`** - Full blog functionality with categories
+- **Dark/Light Theme** - Automatic theme switching with localStorage
+- **Responsive Design** - Mobile-first approach with DaisyUI
+- **Ghost Content Blocks** - Full support for all Koenig editor blocks
+- **Search Integration** - Ghost Sodo Search functionality
+- **Customization Options** - Extensive theme settings via Ghost admin
 
 ## Installation
 
-1. **Zip the theme:**
-   ```bash
-   zip -r ilia-zhitenev-theme.zip ghost-theme/
-   ```
+1. Download or clone this theme
+2. Upload to your Ghost installation via Admin → Design → Themes
+3. Activate the theme
+4. Configure customization options in Admin → Design → Customize
 
-2. **Upload to Ghost:**
-   - Go to Ghost Admin → Design → Themes
-   - Click "Upload theme" and select the zip file
-   - Activate the theme
+## Customization Options
 
-3. **Configure routes (IMPORTANT):**
-   - Go to Ghost Admin → Settings → Labs
-   - Download current routes.yaml
-   - Replace with the routes.yaml from this theme
-   - Upload the new routes.yaml file
-   - Restart Ghost
+### Header Settings
 
-## Required Ghost Configuration
+- **Header Style**: Choose between `default`, `centered`, or `minimal`
+- **Show Announcement Bar**: Toggle announcement bar visibility
+- **Show Search**: Enable/disable search functionality
+- **Show Resume Button**: Toggle resume download button
 
-### Routes Configuration
-The theme requires a custom `routes.yaml` file to work properly. Make sure to upload the included `routes.yaml` file in Ghost Admin → Settings → Labs.
+### Blog Settings
 
-### Tags Setup
-For proper category filtering, create these tags in Ghost Admin:
-- `blog` - Technical articles and insights
-- `growth` - Career development posts
-- `projects` - Project showcases and tutorials
-- `thoughts` - Personal reflections and opinions
+- **Show Featured Posts**: Display featured posts section on blog page
+- **Posts per Page**: Number of posts displayed (default: 10)
 
-### Author Profile
-Update the author profile with:
-- Profile image
-- Bio description
-- Website and social media links
+### Post Settings
 
-## Customization
+- **Show Author Bio**: Display author information in posts
+- **Show Reading Time**: Display estimated reading time
+- **Show Share Buttons**: Enable social sharing buttons
+- **Show Related Posts**: Display related posts section
 
-### Site Information
-Update in Ghost Admin → Settings → General:
-- Site title
-- Site description
-- Site icon (favicon)
-- Site logo
+### Colors
 
-### Colors and Styling
-The theme uses DaisyUI themes. To change the color scheme:
-1. Edit the `data-theme` attribute in the HTML files
-2. Available themes: light, dark, cupcake, bumblebee, emerald, corporate, etc.
+- **Primary Color**: Main theme color (default: #4f46e5)
+- **Secondary Color**: Secondary theme color (default: #7c3aed)
+- **Accent Color**: Accent color for highlights (default: #06b6d4)
+- **Text Color**: Main text color (default: #1f2937)
+- **Background Color**: Page background color (default: #ffffff)
 
-### Contact Information
-Update contact details in:
-- `index.hbs` (homepage)
-- `partials/footer.hbs` (if created)
+### Typography
 
-### Resume PDF
-Replace `assets/resume-ilia-zhitenev.pdf` with your actual resume file.
+- **Font Family**: Choose from Inter, Roboto, Open Sans, Lato, Poppins
+- **Font Size**: Select small, medium, or large text size
 
-### Profile Images
-Replace images in `assets/images/` folder:
-- `profile_1.jpg`
-- `profile_2.jpg` 
-- `profile_3.jpg` (used on homepage)
+### Layout
 
-## Files Structure
+- **Sidebar Position**: Choose left, right, or no sidebar
+
+### Footer
+
+- **Footer Style**: Select simple, detailed, or minimal footer
+- **Show Social Links**: Toggle social media links in footer
+
+## File Structure
 
 ```
 ghost-theme/
-├── package.json          # Theme configuration
-├── routes.yaml           # Custom routing (REQUIRED)
-├── index.hbs            # Static homepage template
-├── home.hbs             # Blog listing template (/blog/)
-├── post.hbs             # Individual post template
 ├── assets/
-│   ├── favicon.svg      # Site favicon
-│   ├── resume-ilia-zhitenev.pdf
-│   └── images/
-│       ├── profile_1.jpg
-│       ├── profile_2.jpg
-│       └── profile_3.jpg
-└── README.md            # This file
+│   ├── css/
+│   │   └── screen.css          # Compiled CSS
+│   ├── favicon.svg             # Site favicon
+│   └── resume-ilia-zhitenev.pdf # Resume file
+├── partials/
+│   ├── navigation.hbs          # Site navigation
+│   ├── footer.hbs              # Site footer
+│   └── announcement.hbs        # Announcement bar
+├── src/
+│   └── screen.css              # Source CSS with Tailwind
+├── default.hbs                 # Base template
+├── index.hbs                   # Static homepage
+├── home.hbs                    # Blog listing page
+├── post.hbs                    # Individual post template
+├── page.hbs                    # Static page template
+├── tag.hbs                     # Tag archive template
+├── routes.yaml                 # Custom routing
+└── package.json                # Theme configuration
 ```
 
 ## Development
 
-### Local Development
-1. Install Ghost locally
-2. Place theme in `content/themes/ilia-zhitenev-theme/`
-3. Upload routes.yaml via Admin
-4. Activate theme in Ghost Admin
+### Prerequisites
 
-### Building for Production
-1. Test all pages work correctly
-2. Verify routes.yaml is properly configured
-3. Check responsive design on all devices
-4. Test theme switching functionality
+- Node.js 16+
+- npm or yarn
 
-## Support
+### Setup
 
-For issues or questions about this theme:
-- Email: ilia.zhitenev@gmail.com
-- GitHub: https://github.com/IlyaZh
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Start development mode:
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+### CSS Development
+
+The theme uses Tailwind CSS with DaisyUI. Source files are in `src/screen.css` and compiled to `assets/css/screen.css`.
+
+## Customization
+
+### Adding Custom CSS
+
+Add custom styles to `src/screen.css`:
+
+```css
+/* Custom styles */
+.my-custom-class {
+    @apply bg-primary text-white p-4 rounded-lg;
+}
+```
+
+### Modifying Templates
+
+All templates use Handlebars syntax and support Ghost's built-in helpers. Key templates:
+
+- `default.hbs` - Base layout with head/foot
+- `index.hbs` - Static homepage (resume)
+- `home.hbs` - Blog listing page
+- `post.hbs` - Individual post display
+
+### Adding Custom Fields
+
+To add new customization options:
+
+1. Add to `package.json` under `custom` section
+2. Use `{{@custom.field_name}}` in templates
+3. Access via Ghost admin interface
+
+## Ghost Features Supported
+
+- ✅ Content API
+- ✅ Admin API
+- ✅ Koenig Editor (all content blocks)
+- ✅ Search functionality
+- ✅ Navigation management
+- ✅ Tag management
+- ✅ Author profiles
+- ✅ Featured posts
+- ✅ Announcement bar
+- ✅ Custom routing
+- ✅ Theme customization
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
 
 ## License
 
-MIT License - Feel free to modify and use for your own projects.
+MIT License - see LICENSE file for details.
 
----
+## Support
+
+For issues and questions:
+- Create an issue on GitHub
+- Check Ghost documentation
+- Review theme customization guide
+
+## Changelog
 
 **Made with ❤️ for Ghost 6+ and modern web standards**
+
+### v1.0.0
+- Initial release
+- Static homepage with resume
+- Blog functionality
+- Dark/light theme switching
+- Full Ghost content block support
+- Extensive customization options

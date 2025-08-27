@@ -15,12 +15,14 @@
                 <li><a href="{{this.url}}" {{#if current}}class="text-primary"{{/if}} title="{{label}}">{{label}}</a></li>
                 {{/foreach}}
                 {{/if}}
+                {{#if @custom.show_resume_button}}
                 <li class="border-t pt-2 mt-2">
                     <a href="{{asset 'resume-ilia-zhitenev.pdf'}}" target="_blank" class="text-primary">
                         <i class="fas fa-download mr-2"></i>
                         Download Resume
                     </a>
                 </li>
+                {{/if}}
             </ul>
         </div>
         <a href="{{@site.url}}" class="btn btn-ghost text-xl font-bold">{{@site.title}}</a>
@@ -46,13 +48,17 @@
     </div>
     
     <div class="navbar-end">
+        {{#if @custom.show_resume_button}}
         <a href="{{asset 'resume-ilia-zhitenev.pdf'}}" target="_blank" class="btn btn-primary btn-sm mr-2 hidden lg:flex">
             <i class="fas fa-download mr-2"></i>
             Resume
         </a>
+        {{/if}}
+        {{#if @custom.show_search}}
         <button class="btn btn-ghost btn-circle mr-2" data-ghost-search title="Search">
             <i class="fas fa-search text-lg"></i>
         </button>
+        {{/if}}
         <button class="btn btn-ghost btn-circle" id="theme-toggle">
             <i class="fas fa-moon text-xl" id="theme-icon"></i>
         </button>

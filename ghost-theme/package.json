@@ -58,6 +58,53 @@
         },
         "card_assets": {
             "exclude": []
+        },
+        "custom": {
+            "show_featured_posts": {
+                "type": "boolean",
+                "default": true,
+                "group": "blog"
+            },
+            "show_author_bio": {
+                "type": "boolean",
+                "default": true,
+                "group": "posts"
+            },
+            "show_reading_time": {
+                "type": "boolean",
+                "default": true,
+                "group": "posts"
+            },
+            "show_share_buttons": {
+                "type": "boolean",
+                "default": true,
+                "group": "posts"
+            },
+            "show_related_posts": {
+                "type": "boolean",
+                "default": true,
+                "group": "posts"
+            },
+            "show_announcement_bar": {
+                "type": "boolean",
+                "default": true,
+                "group": "header"
+            },
+            "show_search": {
+                "type": "boolean",
+                "default": true,
+                "group": "header"
+            },
+            "show_resume_button": {
+                "type": "boolean",
+                "default": true,
+                "group": "header"
+            },
+            "show_social_links": {
+                "type": "boolean",
+                "default": true,
+                "group": "footer"
+            }
         }
     },
     "scripts": {
