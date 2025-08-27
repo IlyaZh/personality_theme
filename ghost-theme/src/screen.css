@@ -28,7 +28,15 @@ html, body {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Koenig Editor Required Classes */
+/* Ghost Koenig Editor Content Blocks - Complete Support */
+
+/* Base card styles */
+.kg-card {
+    margin: 1.5em 0;
+    position: relative;
+}
+
+/* Width modifiers */
 .kg-width-wide {
     position: relative;
     width: 85vw;
@@ -46,35 +54,48 @@ html, body {
     margin-right: -50vw;
 }
 
-/* Koenig card styles */
-.kg-card {
+/* Image cards */
+.kg-image-card {
     margin: 1.5em 0;
-}
-
-.kg-embed-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
 
 .kg-image-card img {
     margin: auto;
     width: 100%;
     height: auto;
+    border-radius: var(--rounded-box, 1rem);
+}
+
+.kg-image-card figcaption {
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: 0.875rem;
+    color: oklch(var(--bc) / 0.6);
+}
+
+/* Gallery cards */
+.kg-gallery-card {
+    margin: 1.5em 0;
 }
 
 .kg-gallery-container {
     display: flex;
     flex-direction: column;
     max-width: 1040px;
-    width: 100vw;
+    width: 100%;
 }
 
 .kg-gallery-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 0.75rem;
+}
+
+.kg-gallery-image {
+    flex: 1 1 0%;
+    margin: 0;
+    min-width: 0;
 }
 
 .kg-gallery-image img {
@@ -82,53 +103,148 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: var(--rounded-box, 1rem);
 }
 
-.kg-gallery-image {
-    flex: 1 1 0;
-    margin: 0 0.75em 1.5em 0;
-    min-width: 0;
+/* Video cards */
+.kg-video-card {
+    margin: 1.5em 0;
 }
 
-.kg-gallery-image:last-of-type {
-    margin: 0 0 1.5em;
-}
-
-.kg-bookmark-card {
+.kg-video-container {
+    position: relative;
     width: 100%;
-    background: var(--white);
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.kg-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.kg-video-large {
+    width: 100%;
+    height: auto;
+    border-radius: var(--rounded-box, 1rem);
+}
+
+.kg-video-player-container {
+    position: relative;
+    border-radius: var(--rounded-box, 1rem);
+    overflow: hidden;
+}
+
+/* Audio cards */
+.kg-audio-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b2));
+    border-radius: var(--rounded-box, 1rem);
+    padding: 1.5rem;
+}
+
+.kg-audio-thumbnail {
+    border-radius: var(--rounded-btn, 0.5rem);
+    overflow: hidden;
+}
+
+.kg-audio-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.kg-audio-player-container {
+    position: relative;
+    border-radius: var(--rounded-box, 1rem);
+    background: oklch(var(--b1));
+    padding: 1rem;
+}
+
+/* File cards */
+.kg-file-card {
+    margin: 1.5em 0;
+}
+
+.kg-file-card-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: oklch(var(--b2));
+    border-radius: var(--rounded-box, 1rem);
+    border: 1px solid oklch(var(--bc) / 0.1);
+}
+
+.kg-file-card-contents {
+    flex: 1;
+    margin-left: 1rem;
+}
+
+.kg-file-card-title {
+    font-weight: 600;
+    color: oklch(var(--bc));
+}
+
+.kg-file-card-caption {
+    font-size: 0.875rem;
+    color: oklch(var(--bc) / 0.6);
+    margin-top: 0.25rem;
+}
+
+.kg-file-card-metadata {
+    font-size: 0.875rem;
+    color: oklch(var(--bc) / 0.6);
+    margin-top: 0.25rem;
+}
+
+/* Bookmark cards */
+.kg-bookmark-card {
+    margin: 1.5em 0;
+    width: 100%;
 }
 
 .kg-bookmark-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-    color: currentColor;
+    color: oklch(var(--bc));
     font-family: inherit;
     text-decoration: none;
-    border: 1px solid var(--color-border);
-    border-radius: 3px;
+    border: 1px solid oklch(var(--bc) / 0.1);
+    border-radius: var(--rounded-box, 1rem);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.kg-bookmark-container:hover {
+    border-color: oklch(var(--p));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .kg-bookmark-content {
     flex-basis: 0;
     flex-grow: 999;
-    padding: 20px;
+    padding: 1.5rem;
     order: 1;
 }
 
 .kg-bookmark-title {
     font-weight: 600;
-    font-size: 1.2rem;
-    line-height: 1.3em;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    color: oklch(var(--bc));
 }
 
 .kg-bookmark-description {
     display: -webkit-box;
     max-height: 45px;
     margin: 0.5em 0 0 0;
-    font-size: 0.8rem;
-    line-height: 1.55em;
+    font-size: 0.875rem;
+    line-height: 1.55;
     overflow: hidden;
     opacity: 0.8;
     -webkit-line-clamp: 2;
@@ -136,24 +252,23 @@ html, body {
 }
 
 .kg-bookmark-metadata {
-    margin-top: 20px;
-}
-
-.kg-bookmark-metadata {
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     font-weight: 500;
-    font-size: 0.8rem;
-    line-height: 1.3em;
+    font-size: 0.875rem;
+    line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: oklch(var(--bc) / 0.6);
 }
 
 .kg-bookmark-icon {
     display: inline-block;
     width: 16px;
     height: 16px;
+    margin-right: 0.5rem;
 }
 
 .kg-bookmark-thumbnail {
@@ -177,25 +292,394 @@ html, body {
 
 .kg-bookmark-publisher::before {
     content: "•";
-    margin: 0 .5em;
+    margin: 0 0.5em;
+}
+
+/* Button cards */
+.kg-button-card {
+    margin: 1.5em 0;
+    text-align: center;
+}
+
+.kg-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: oklch(var(--p));
+    color: oklch(var(--pc));
+    text-decoration: none;
+    border-radius: var(--rounded-btn, 0.5rem);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.kg-btn:hover {
+    background: oklch(var(--p) / 0.9);
+    transform: translateY(-1px);
+}
+
+/* Callout cards */
+.kg-callout-card {
+    margin: 1.5em 0;
+    padding: 1.5rem;
+    background: oklch(var(--b2));
+    border-radius: var(--rounded-box, 1rem);
+    border-left: 4px solid oklch(var(--p));
+}
+
+.kg-callout-card-grey {
+    background: oklch(var(--n) / 0.1);
+    border-left-color: oklch(var(--n));
+}
+
+.kg-callout-card-white {
+    background: oklch(var(--b1));
+    border: 1px solid oklch(var(--bc) / 0.1);
+}
+
+.kg-callout-card-blue {
+    background: oklch(var(--in) / 0.1);
+    border-left-color: oklch(var(--in));
+}
+
+.kg-callout-card-green {
+    background: oklch(var(--su) / 0.1);
+    border-left-color: oklch(var(--su));
+}
+
+.kg-callout-card-yellow {
+    background: oklch(var(--wa) / 0.1);
+    border-left-color: oklch(var(--wa));
+}
+
+.kg-callout-card-red {
+    background: oklch(var(--er) / 0.1);
+    border-left-color: oklch(var(--er));
+}
+
+.kg-callout-card-pink {
+    background: oklch(var(--s) / 0.1);
+    border-left-color: oklch(var(--s));
+}
+
+.kg-callout-card-purple {
+    background: oklch(var(--a) / 0.1);
+    border-left-color: oklch(var(--a));
+}
+
+.kg-callout-emoji {
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+}
+
+/* Toggle cards */
+.kg-toggle-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b2));
+    border-radius: var(--rounded-box, 1rem);
+    border: 1px solid oklch(var(--bc) / 0.1);
+}
+
+.kg-toggle-heading {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: oklch(var(--bc));
+}
+
+.kg-toggle-card-icon {
+    margin-right: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.kg-toggle-content {
+    padding: 0 1.5rem 1.5rem;
+    display: none;
+}
+
+.kg-toggle-card[open] .kg-toggle-card-icon {
+    transform: rotate(90deg);
+}
+
+.kg-toggle-card[open] .kg-toggle-content {
+    display: block;
+}
+
+/* Product cards */
+.kg-product-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b1));
+    border: 1px solid oklch(var(--bc) / 0.1);
+    border-radius: var(--rounded-box, 1rem);
+    overflow: hidden;
+}
+
+.kg-product-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.kg-product-card-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.kg-product-card-description {
+    color: oklch(var(--bc) / 0.7);
+    margin-bottom: 1rem;
+}
+
+.kg-product-card-button {
+    background: oklch(var(--p));
+    color: oklch(var(--pc));
+    padding: 0.5rem 1rem;
+    border-radius: var(--rounded-btn, 0.5rem);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* Header cards */
+.kg-header-card {
+    margin: 1.5em 0;
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--rounded-box, 1rem);
+    overflow: hidden;
+}
+
+.kg-header-card-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+.kg-header-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Embed cards */
+.kg-embed-card {
+    margin: 1.5em 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--rounded-box, 1rem);
+}
+
+.kg-embed-card iframe,
+.kg-embed-card object,
+.kg-embed-card embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--rounded-box, 1rem);
+}
+
+/* NFT cards */
+.kg-nft-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b1));
+    border: 1px solid oklch(var(--bc) / 0.1);
+    border-radius: var(--rounded-box, 1rem);
+    overflow: hidden;
+}
+
+.kg-nft-metadata {
+    padding: 1.5rem;
+}
+
+.kg-nft-image {
+    width: 100%;
+    height: auto;
+}
+
+.kg-nft-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.kg-nft-creator {
+    color: oklch(var(--bc) / 0.6);
+    font-size: 0.875rem;
+}
+
+/* Signup cards */
+.kg-signup-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b2));
+    border-radius: var(--rounded-box, 1rem);
+    padding: 2rem;
+    text-align: center;
+}
+
+.kg-signup-card h4 {
+    margin-bottom: 1rem;
+}
+
+.kg-signup-card .kg-signup-card-content {
+    margin-bottom: 1.5rem;
+}
+
+.kg-signup-card-button {
+    background: oklch(var(--p));
+    color: oklch(var(--pc));
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--rounded-btn, 0.5rem);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Before/After cards */
+.kg-before-after-card {
+    margin: 1.5em 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--rounded-box, 1rem);
+}
+
+.kg-before-after-card-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Collection cards */
+.kg-collection-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b1));
+    border: 1px solid oklch(var(--bc) / 0.1);
+    border-radius: var(--rounded-box, 1rem);
+    overflow: hidden;
+}
+
+.kg-collection-card-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 1.5rem 1.5rem 0;
+}
+
+.kg-collection-card-posts {
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.kg-collection-card-post {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid oklch(var(--bc) / 0.1);
+}
+
+.kg-collection-card-post:last-child {
+    border-bottom: none;
+}
+
+.kg-collection-card-post-title {
+    font-weight: 500;
+    color: oklch(var(--bc));
+}
+
+/* Email signup cards */
+.kg-email-signup-card {
+    margin: 1.5em 0;
+    background: oklch(var(--b2));
+    border-radius: var(--rounded-box, 1rem);
+    padding: 2rem;
+    text-align: center;
+}
+
+.kg-email-signup-card h4 {
+    margin-bottom: 1rem;
+}
+
+.kg-email-signup-card-content {
+    margin-bottom: 1.5rem;
+}
+
+.kg-email-signup-card-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.kg-email-signup-card-input {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 1px solid oklch(var(--bc) / 0.2);
+    border-radius: var(--rounded-btn, 0.5rem);
+    background: oklch(var(--b1));
+}
+
+.kg-email-signup-card-button {
+    background: oklch(var(--p));
+    color: oklch(var(--pc));
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--rounded-btn, 0.5rem);
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Paywall cards */
+.kg-paywall-card {
+    margin: 1.5em 0;
+    background: oklch(var(--wa) / 0.1);
+    border: 1px solid oklch(var(--wa));
+    border-radius: var(--rounded-box, 1rem);
+    padding: 2rem;
+    text-align: center;
+}
+
+.kg-paywall-card h4 {
+    color: oklch(var(--wa));
+    margin-bottom: 1rem;
 }
 
 /* Prose styling for post content */
 .prose {
     max-width: none;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
     color: oklch(var(--bc));
+    text-align: left; /* Headers should not be justified */
 }
 
 .prose p, .prose li {
     color: oklch(var(--bc) / 0.8);
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .prose pre {
     background: oklch(var(--b2));
     border: 1px solid oklch(var(--b3));
+    text-align: left; /* Code should not be justified */
 }
 
 .prose code {
@@ -210,10 +694,29 @@ html, body {
     background: oklch(var(--b2));
     padding: 1rem;
     margin: 1.5rem 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.prose figcaption {
+    text-align: center; /* Captions should be centered */
+}
+
+.prose ul, .prose ol {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Don't justify short lines or specific elements */
+.prose .kg-bookmark-title,
+.prose .kg-bookmark-description,
+.prose .kg-file-card-title,
+.prose .kg-file-card-caption {
+    text-align: left;
 }
 
 /* Responsive adjustments */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .kg-width-wide {
         width: 100vw;
         margin-left: calc(50% - 50vw);
@@ -221,8 +724,9 @@ html, body {
         transform: none;
     }
     
-    .kg-gallery-image {
-        margin-bottom: 0.75em;
+    .kg-gallery-row {
+        flex-direction: column;
+        gap: 0.5rem;
     }
     
     .kg-bookmark-container {
@@ -236,5 +740,73 @@ html, body {
     
     .kg-bookmark-content {
         order: 2;
+    }
+    
+    .kg-product-card,
+    .kg-callout-card,
+    .kg-toggle-card,
+    .kg-signup-card,
+    .kg-email-signup-card {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        border-radius: 0;
+    }
+    
+    .kg-email-signup-card-form {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .kg-email-signup-card-input {
+        max-width: 100%;
+    }
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+    .kg-bookmark-container {
+        background: oklch(var(--b2));
+    }
+    
+    .kg-bookmark-container:hover {
+        background: oklch(var(--b3));
+    }
+}
+
+/* Typography integration with prose */
+.prose .kg-card {
+    max-width: none;
+}
+
+.prose .kg-image-card,
+.prose .kg-gallery-card,
+.prose .kg-video-card,
+.prose .kg-audio-card {
+    margin: 2em 0;
+}
+
+.prose .kg-bookmark-card,
+.prose .kg-callout-card,
+.prose .kg-product-card {
+    margin: 1.5em 0;
+}
+
+/* Ensure cards work with different content widths */
+.kg-width-normal {
+    max-width: 100%;
+}
+
+/* Print styles */
+@media print {
+    .kg-audio-card,
+    .kg-video-card,
+    .kg-embed-card {
+        display: none;
+    }
+    
+    .kg-image-card img,
+    .kg-gallery-image img {
+        max-width: 100%;
+        page-break-inside: avoid;
     }
 }

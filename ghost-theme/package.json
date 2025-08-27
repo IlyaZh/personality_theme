@@ -55,6 +55,9 @@
             "xl": {
                 "width": 2000
             }
+        },
+        "card_assets": {
+            "exclude": []
         }
     },
     "scripts": {
