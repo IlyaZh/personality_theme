@@ -49,8 +49,39 @@
         </div>
     </div>
 
+    <!-- Category Navigation -->
+    <section class="py-8 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                {{!-- All Posts button --}}
+                <a href="{{@site.url}}/blog/" class="btn btn-outline">
+                    <i class="fas fa-list mr-2"></i>
+                    All Posts
+                </a>
+                
+                {{!-- Category buttons - simple approach --}}
+                <a href="{{@site.url}}/tag/mainstream/" class="btn btn-outline category-btn-mainstream">
+                    <i class="fas fa-newspaper mr-2"></i>
+                    Mainstream
+                </a>
+                <a href="{{@site.url}}/tag/growth/" class="btn btn-outline category-btn-growth">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    Growth
+                </a>
+                <a href="{{@site.url}}/tag/projects/" class="btn btn-outline category-btn-projects">
+                    <i class="fas fa-tools mr-2"></i>
+                    Projects
+                </a>
+                <a href="{{@site.url}}/tag/thoughts/" class="btn btn-outline category-btn-thoughts">
+                    <i class="fas fa-lightbulb mr-2"></i>
+                    Thoughts
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Tag Posts -->
-    <section class="py-20 bg-base-100">
+    <section class="py-12 bg-base-100">
         <div class="container mx-auto px-4">
             {{#if posts}}
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
@@ -207,6 +238,18 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeMobileMenu();
+            }
+        });
+
+        // Set active category button
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentSlug = '{{tag.slug}}';
+            if (currentSlug) {
+                const activeButton = document.querySelector('.category-btn-' + currentSlug);
+                if (activeButton) {
+                    activeButton.classList.remove('btn-outline');
+                    activeButton.classList.add('btn-primary');
+                }
             }
         });
     </script>
