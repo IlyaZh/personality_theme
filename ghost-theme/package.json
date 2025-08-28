@@ -110,6 +110,10 @@
             },
             "personal_photo": {
                 "type": "image"
+            },
+            "personal_name": {
+                "type": "string",
+                "default": "Enter your name here"
             }
         }
     },
