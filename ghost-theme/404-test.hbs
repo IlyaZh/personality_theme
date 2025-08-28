@@ -1,0 +1,44 @@
+{{!< default}}
+
+{{!-- Test page to simulate 404 error --}}
+<div class="container mx-auto px-4 py-16">
+    <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-base-content mb-8">Error Page Test</h1>
+        <p class="text-lg text-base-content/70 mb-8">
+            This page simulates how the error page will look. The actual error page will be shown when users visit non-existent URLs.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 404 Error -->
+            <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div class="card-body text-center">
+                    <div class="text-6xl font-bold text-red-500 mb-4">404</div>
+                    <h3 class="card-title justify-center">Page Not Found</h3>
+                    <p class="text-sm text-base-content/70">The page you're looking for doesn't exist.</p>
+                </div>
+            </div>
+            
+            <!-- 500 Error -->
+            <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div class="card-body text-center">
+                    <div class="text-6xl font-bold text-orange-500 mb-4">500</div>
+                    <h3 class="card-title justify-center">Server Error</h3>
+                    <p class="text-sm text-base-content/70">Something went wrong on our end.</p>
+                </div>
+            </div>
+            
+            <!-- 403 Error -->
+            <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div class="card-body text-center">
+                    <div class="text-6xl font-bold text-yellow-500 mb-4">403</div>
+                    <h3 class="card-title justify-center">Forbidden</h3>
+                    <p class="text-sm text-base-content/70">You don't have permission to access this page.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8">
+            <a href="{{@site.url}}" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</div>

@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     
     {{!-- Dynamic title and meta --}}
-    <title>{{#is "post"}}{{title}} - {{@site.title}}{{else}}{{#is "page"}}{{title}} - {{@site.title}}{{else}}{{#is "tag"}}{{tag.name}} - {{@site.title}}{{else}}{{#is "author"}}{{primary_author.name}} - {{@site.title}}{{else}}{{meta_title}}{{/is}}{{/is}}{{/is}}{{/is}}</title>
-    <meta name="description" content="{{#if meta_description}}{{meta_description}}{{else}}{{@site.description}}{{/if}}">
+    <title>{{#is "error"}}{{statusCode}} - {{message}} - {{@site.title}}{{else}}{{#is "post"}}{{title}} - {{@site.title}}{{else}}{{#is "page"}}{{title}} - {{@site.title}}{{else}}{{#is "tag"}}{{tag.name}} - {{@site.title}}{{else}}{{#is "author"}}{{primary_author.name}} - {{@site.title}}{{else}}{{meta_title}}{{/is}}{{/is}}{{/is}}{{/is}}{{/is}}</title>
+    <meta name="description" content="{{#if meta_description}}{{meta_description}}{{else}}{{#is "error"}}Page not found or error occurred on {{@site.title}}{{else}}{{@site.description}}{{/is}}{{/if}}">
     
     {{!-- Open Graph / Facebook --}}
     <meta property="og:type" content="{{#is "post"}}article{{else}}website{{/is}}">
-    <meta property="og:title" content="{{meta_title}}">
-    <meta property="og:description" content="{{#if meta_description}}{{meta_description}}{{else}}{{@site.description}}{{/if}}">
+    <meta property="og:title" content="{{#is "error"}}{{statusCode}} - {{message}}{{else}}{{meta_title}}{{/is}}">
+    <meta property="og:description" content="{{#if meta_description}}{{meta_description}}{{else}}{{#is "error"}}Page not found or error occurred on {{@site.title}}{{else}}{{@site.description}}{{/is}}{{/if}}">
     <meta property="og:url" content="{{url absolute="true"}}">
     <meta property="og:site_name" content="{{@site.title}}">
     {{#if feature_image}}
@@ -24,8 +24,8 @@
     
     {{!-- Twitter --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{meta_title}}">
-    <meta name="twitter:description" content="{{#if meta_description}}{{meta_description}}{{else}}{{@site.description}}{{/if}}">
+    <meta name="twitter:title" content="{{#is "error"}}{{statusCode}} - {{message}}{{else}}{{meta_title}}{{/is}}">
+    <meta name="twitter:description" content="{{#if meta_description}}{{meta_description}}{{else}}{{#is "error"}}Page not found or error occurred on {{@site.title}}{{else}}{{@site.description}}{{/is}}{{/if}}">
     {{#if feature_image}}
     <meta name="twitter:image" content="{{img_url feature_image size="l"}}">
     {{else}}
