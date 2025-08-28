@@ -73,11 +73,6 @@
                 "default": true,
                 "group": "posts"
             },
-            "show_reading_time": {
-                "type": "boolean",
-                "default": true,
-                "group": "posts"
-            },
             "show_share_buttons": {
                 "type": "boolean",
                 "default": true,
@@ -112,8 +107,16 @@
                 "type": "image"
             },
             "personal_name": {
-                "type": "string",
+                "type": "text",
                 "default": "Enter your name here"
+            },
+            "personal_title": {
+                "type": "text",
+                "default": "Enter your title here"
+            },
+            "resume_link": {
+                "type": "text",
+                "default": "https://google.com"
             }
         }
     },

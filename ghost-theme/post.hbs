@@ -38,10 +38,8 @@
                 <div class="font-semibold text-base-content">{{primary_author.name}}</div>
                 <div class="text-sm">
                     <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM DD, YYYY"}}</time>
-                    {{#if @custom.show_reading_time}}
                     <span class="mx-2">•</span>
                     <span>{{reading_time}}</span>
-                    {{/if}}
                     {{#if updated_at}}
                     <span class="mx-2">•</span>
                     <span>Updated {{date updated_at format="MMM DD, YYYY"}}</span>
