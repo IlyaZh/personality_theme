@@ -886,3 +886,63 @@ html, body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+
+/* Microblog styles */
+.prose {
+    color: hsl(var(--bc));
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: hsl(var(--bc));
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.prose p {
+    margin-bottom: 1em;
+    line-height: 1.7;
+}
+
+.prose ul, .prose ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.prose li {
+    margin-bottom: 0.5em;
+}
+
+.prose blockquote {
+    border-left: 4px solid hsl(var(--p));
+    padding-left: 1em;
+    margin: 1.5em 0;
+    font-style: italic;
+    color: hsl(var(--bc) / 0.8);
+}
+
+.prose code {
+    background-color: hsl(var(--bc) / 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.875em;
+}
+
+.prose pre {
+    background-color: hsl(var(--bc) / 0.05);
+    padding: 1em;
+    border-radius: 0.5em;
+    overflow-x: auto;
+    margin: 1.5em 0;
+}
+
+.prose a {
+    color: hsl(var(--p));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.prose a:hover {
+    color: hsl(var(--pf));
+}

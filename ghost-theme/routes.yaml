@@ -22,7 +22,7 @@ collections:
   /blog/thoughts/:
     permalink: /thoughts/{slug}/
     # template: index
-    template: home
+    template: thoughts
     filter: primary_tag:[thoughts]
   # Посты остаются на корневом уровне /{slug}/
   /blog/:
