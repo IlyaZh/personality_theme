@@ -21,8 +21,7 @@ routes:
 collections:
   /blog/thoughts/:
     permalink: /thoughts/{slug}/
-    # template: index
-    template: thoughts
+    template: microblog
     filter: primary_tag:[thoughts]
   # Посты остаются на корневом уровне /{slug}/
   /blog/:
