@@ -3,3 +3,4 @@ docs/
 ghost/
 **.zip
 **/node_modules/
+pack.sh

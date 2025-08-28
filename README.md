@@ -1,150 +1,190 @@
-# Personal Website - Ilia Zhitenev
+# Ilia Zhitenev Ghost Theme
 
-A modern static portfolio website with responsive design and theme switching.
+A modern, responsive Ghost theme with static homepage and blog functionality. Features dark/light theme switching, comprehensive content block support, and extensive customization options.
 
-## 🚀 Features
+## Features
 
-- **Responsive Design** - works perfectly on all devices
-- **Theme Switching** - light and dark theme with settings persistence
-- **Modern UI** - built with DaisyUI and Tailwind CSS
-- **Resume Page** - complete information about skills and experience
-- **Categorized Blog** - organized content with filtering
-- **Smooth Animations** - modern transitions and effects
+- **Static Homepage** - Resume/portfolio page at root (`/`)
+- **Blog at `/blog/`** - Full blog functionality with categories
+- **Dark/Light Theme** - Automatic theme switching with localStorage
+- **Responsive Design** - Mobile-first approach with DaisyUI
+- **Ghost Content Blocks** - Full support for all Koenig editor blocks
+- **Search Integration** - Ghost Sodo Search functionality
+- **Customization Options** - Extensive theme settings via Ghost admin
 
-## 🛠 Technologies
+## Installation
 
-- **HTML5** - semantic markup
-- **CSS3** - modern styling
-- **JavaScript** - interactivity
-- **DaisyUI** - UI components
-- **Tailwind CSS** - utility-first styling
-- **Font Awesome** - icons
+1. Download or clone this theme
+2. Upload to your Ghost installation via Admin → Design → Themes
+3. Activate the theme
+4. Configure customization options in Admin → Design → Customize
 
-## 📱 Project Structure
+## Customization Options
+
+### Header Settings
+
+- **Header Style**: Choose between `default`, `centered`, or `minimal`
+- **Show Announcement Bar**: Toggle announcement bar visibility
+- **Show Search**: Enable/disable search functionality
+- **Show Resume Button**: Toggle resume download button
+
+### Blog Settings
+
+- **Show Featured Posts**: Display featured posts section on blog page
+- **Posts per Page**: Number of posts displayed (default: 10)
+
+### Post Settings
+
+- **Show Author Bio**: Display author information in posts
+- **Show Reading Time**: Display estimated reading time
+- **Show Share Buttons**: Enable social sharing buttons
+- **Show Related Posts**: Display related posts section
+
+### Colors
+
+- **Primary Color**: Main theme color (default: #4f46e5)
+- **Secondary Color**: Secondary theme color (default: #7c3aed)
+- **Accent Color**: Accent color for highlights (default: #06b6d4)
+- **Text Color**: Main text color (default: #1f2937)
+- **Background Color**: Page background color (default: #ffffff)
+
+### Typography
+
+- **Font Family**: Choose from Inter, Roboto, Open Sans, Lato, Poppins
+- **Font Size**: Select small, medium, or large text size
+
+### Layout
+
+- **Sidebar Position**: Choose left, right, or no sidebar
+
+### Footer
+
+- **Footer Style**: Select simple, detailed, or minimal footer
+- **Show Social Links**: Toggle social media links in footer
+
+## File Structure
 
 ```
-try_to_gen_blog_design/
-├── index.html          # Main page (resume)
-├── blog.html           # Blog page
-├── package.json        # Project configuration
-└── README.md          # Documentation
+ghost-theme/
+├── assets/
+│   ├── css/
+│   │   └── screen.css          # Compiled CSS
+│   ├── favicon.svg             # Site favicon
+│   └── resume-ilia-zhitenev.pdf # Resume file
+├── partials/
+│   ├── navigation.hbs          # Site navigation
+│   ├── footer.hbs              # Site footer
+│   └── announcement.hbs        # Announcement bar
+├── src/
+│   └── screen.css              # Source CSS with Tailwind
+├── default.hbs                 # Base template
+├── index.hbs                   # Static homepage
+├── home.hbs                    # Blog listing page
+├── post.hbs                    # Individual post template
+├── page.hbs                    # Static page template
+├── tag.hbs                     # Tag archive template
+├── routes.yaml                 # Custom routing
+└── package.json                # Theme configuration
 ```
 
-## 🚀 Getting Started
+## Development
 
-### Simple Way
-Open `index.html` in your browser - the website is ready to use!
+### Prerequisites
 
-### With Local Server (Recommended)
+- Node.js 16+
+- npm or yarn
+
+### Setup
 
 1. Install dependencies:
-```bash
-npm install
+   ```bash
+   npm install
+   ```
+
+2. Start development mode:
+   ```bash
+   npm run dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+
+### CSS Development
+
+The theme uses Tailwind CSS with DaisyUI. Source files are in `src/screen.css` and compiled to `assets/css/screen.css`.
+
+## Customization
+
+### Adding Custom CSS
+
+Add custom styles to `src/screen.css`:
+
+```css
+/* Custom styles */
+.my-custom-class {
+    @apply bg-primary text-white p-4 rounded-lg;
+}
 ```
 
-2. Start local server:
-```bash
-npm run dev
-```
+### Modifying Templates
 
-3. Open your browser and go to: `http://localhost:3000`
+All templates use Handlebars syntax and support Ghost's built-in helpers. Key templates:
 
-### Alternative Ways to Run
+- `default.hbs` - Base layout with head/foot
+- `index.hbs` - Static homepage (resume)
+- `home.hbs` - Blog listing page
+- `post.hbs` - Individual post display
 
-**Python:**
-```bash
-python -m http.server 3000
-```
+### Adding Custom Fields
 
-**PHP:**
-```bash
-php -S localhost:3000
-```
+To add new customization options:
 
-**Live Server (VS Code):**
-Install Live Server extension and click "Go Live"
+1. Add to `package.json` under `custom` section
+2. Use `{{@custom.field_name}}` in templates
+3. Access via Ghost admin interface
 
-## 📄 Pages
+## Ghost Features Supported
 
-### Main Page (index.html)
-- Hero section with presentation
-- About me section with statistics
-- Skills and technologies
-- Work experience timeline
-- Contact information
+- ✅ Content API
+- ✅ Admin API
+- ✅ Koenig Editor (all content blocks)
+- ✅ Search functionality
+- ✅ Navigation management
+- ✅ Tag management
+- ✅ Author profiles
+- ✅ Featured posts
+- ✅ Announcement bar
+- ✅ Custom routing
+- ✅ Theme customization
 
-### Blog (blog.html)
-- Article categories:
-  - **Blog** - technical insights and reviews
-  - **Growth** - career development advice
-  - **Projects** - showcase and tutorials
-  - **Thoughts** - personal reflections
-- Category filtering
-- Responsive article grid
-- Newsletter subscription
+## Browser Support
 
-## 🎨 Customization
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
 
-### Changing Color Scheme
-DaisyUI supports multiple themes. Change `data-theme` in HTML:
-```html
-<html data-theme="cupcake"> <!-- or another theme -->
-```
+## License
 
-### Content Personalization
-1. Replace section information with your own
-2. Update social media links
-3. Add your projects and articles
+MIT License - see LICENSE file for details.
 
-### Adding New Sections
-Use ready-made DaisyUI components:
-- Cards for projects
-- Stats for statistics
-- Timeline for history
-- Badges for skills
+## Support
 
-## 🌐 Deployment
+For issues and questions:
+- Create an issue on GitHub
+- Check Ghost documentation
+- Review theme customization guide
 
-### GitHub Pages
-1. Upload code to GitHub repository
-2. Enable GitHub Pages in settings
-3. Select branch for deployment
+## Changelog
 
-### Netlify
-1. Connect repository to Netlify
-2. No build settings needed (static site)
-3. Site will auto-update on push
+**Made with ❤️ for Ghost 6+ and modern web standards**
 
-### Vercel
-```bash
-npm install -g vercel
-vercel --prod
-```
-
-## 🔧 Development
-
-### CSS Structure
-- Main styles in `<style>` tags
-- Tailwind CSS for utility classes
-- DaisyUI for components
-
-### JavaScript Functionality
-- Theme switching with localStorage
-- Blog article filtering
-- Smooth scrolling
-- Hover animations
-
-## 📞 Contact
-
-- **Email**: ilia.zhitenev@example.com
-- **LinkedIn**: linkedin.com/in/ilia-zhitenev
-- **GitHub**: github.com/iliazhitenev
-- **Telegram**: @iliazhitenev
-
-## 📝 License
-
-MIT License - use freely for personal and commercial projects.
-
----
-
-**Made with ❤️ and modern web technologies**
+### v1.0.0
+- Initial release
+- Static homepage with resume
+- Blog functionality
+- Dark/light theme switching
+- Full Ghost content block support
+- Extensive customization options
