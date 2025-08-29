@@ -1,6 +1,6 @@
 {
-    "name": "ilia-zhitenev-theme",
-    "description": "Custom Ghost theme with static homepage and blog at /blog",
+    "name": "personality",
+    "description": "Ghost theme with static homepage and blog at /blog for personal website",
     "demo": "https://iliazhitenev.dev",
     "version": "1.0.0",
     "engines": {
