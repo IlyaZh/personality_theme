@@ -1,4 +1,4 @@
-# Ilia Zhitenev Ghost Theme
+# Personality Ghost Theme
 
 A modern, responsive Ghost theme with static homepage and blog functionality. Features dark/light theme switching, comprehensive content block support, and extensive customization options.
 

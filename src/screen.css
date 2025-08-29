@@ -1,6 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Experience Section Color System */
+
+/* CSS Variables */
+:root {
+    /* Main company colors */
+    --experience-yandex-primary: #3b82f6;    /* Blue for Yandex Eats */
+    --experience-yandex-secondary: #8b5cf6;  /* Purple for Yandex Eats */
+    --experience-kontinent: #f59e0b;         /* Orange for KONTINENT */
+    --experience-maiman: #06b6d4;            /* Cyan for Maiman Electronics */
+    --experience-research: #eab308;          /* Yellow for Research Institute */
+    
+    /* Badge colors */
+    --experience-badge-primary: #6b7280;     /* Gray for main period badges */
+    --experience-badge-yandex-senior: var(--experience-yandex-primary);
+    --experience-badge-yandex-engineer: var(--experience-yandex-secondary);
+    --experience-badge-kontinent: var(--experience-kontinent);
+    --experience-badge-maiman: var(--experience-maiman);
+    --experience-badge-research: var(--experience-research);
+    
+    /* Border colors */
+    --experience-border-yandex-senior: var(--experience-yandex-primary);
+    --experience-border-yandex-engineer: var(--experience-yandex-secondary);
+    --experience-border-kontinent: var(--experience-kontinent);
+    --experience-border-maiman: var(--experience-maiman);
+    --experience-border-research: var(--experience-research);
+}
 /* Ghost Theme CSS */
 
 /* Custom font variables for Ghost font settings */
@@ -945,4 +972,62 @@ html, body {
 
 .prose a:hover {
     color: hsl(var(--pf));
+}
+
+/* Experience Section Color System - CSS Classes */
+
+/* Main period badges */
+.experience-badge-primary {
+    background-color: var(--experience-badge-primary) !important;
+    color: white !important;
+}
+
+/* Yandex Eats badges */
+.experience-badge-yandex-senior {
+    background-color: var(--experience-badge-yandex-senior) !important;
+    color: white !important;
+}
+
+.experience-badge-yandex-engineer {
+    background-color: var(--experience-badge-yandex-engineer) !important;
+    color: white !important;
+}
+
+/* KONTINENT badges */
+.experience-badge-kontinent {
+    background-color: var(--experience-badge-kontinent) !important;
+    color: white !important;
+}
+
+/* Maiman Electronics badges */
+.experience-badge-maiman {
+    background-color: var(--experience-badge-maiman) !important;
+    color: white !important;
+}
+
+/* Research Institute badges */
+.experience-badge-research {
+    background-color: var(--experience-badge-research) !important;
+    color: white !important;
+}
+
+/* Experience border classes */
+.experience-border-yandex-senior {
+    border-color: var(--experience-border-yandex-senior) !important;
+}
+
+.experience-border-yandex-engineer {
+    border-color: var(--experience-border-yandex-engineer) !important;
+}
+
+.experience-border-kontinent {
+    border-color: var(--experience-border-kontinent) !important;
+}
+
+.experience-border-maiman {
+    border-color: var(--experience-border-maiman) !important;
+}
+
+.experience-border-research {
+    border-color: var(--experience-border-research) !important;
 }
