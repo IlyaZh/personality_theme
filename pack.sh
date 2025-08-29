@@ -1,1 +1,1 @@
-rm ilia-zhitenev-theme-final.zip &&  zip -r ilia-zhitenev-theme-final.zip ghost-theme/ -x "ghost-theme/node_modules/*" -x "ghost-theme/src/*"
+rm ilia-zhitenev-theme-final.zip |  zip -r ilia-zhitenev-theme-final.zip . -x "node_modules/*" -x "src/*" -x "pack.sh" -x "ghost/*" -x ".git/*" -x ".github/*" -x "routes.yaml" -x "package-lock.json" -x "docs/*" -x "*.md" -x ".gitignore" -x ".DS_Store"
