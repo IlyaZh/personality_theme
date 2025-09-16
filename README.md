@@ -12,6 +12,11 @@ A modern, responsive Ghost theme with static homepage and blog functionality. Fe
 - **Search Integration** - Ghost Sodo Search functionality
 - **Customization Options** - Extensive theme settings via Ghost admin
 
+## Screenshots
+
+![Screenshot-desktop](./assets/screenshot-desktop.png)
+![Screenshot-mobile](./assets/screenshot-mobile.png)
+
 ## Installation
 
 1. Download or clone this theme
@@ -179,12 +184,4 @@ For issues and questions:
 
 ## Changelog
 
-**Made with ❤️ for Ghost 6+ and modern web standards**
-
-### v1.0.0
-- Initial release
-- Static homepage with resume
-- Blog functionality
-- Dark/light theme switching
-- Full Ghost content block support
-- Extensive customization options
+[Changelog](./CHANGELOG.md)
