@@ -34,3 +34,7 @@
 - Aligned stats block with About text; improved spacing and layout
 - Increased stats card width and padding for readability, while preserving compact mobile layout
 - Fixed horizontal overflow on mobile
+
+## 1.0.2
+
+- Just add screenshots
