@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.3
+
+### Security Fixes
+- **Moved Formspree endpoint**: Now configurable via Ghost Admin custom settings (`formspree_endpoint`)
+- **Enhanced form security**: All form endpoints now configurable through Ghost Admin
+
+### Configuration
+- Added `formspree_endpoint` to custom settings in `package.json`
+- Formspree endpoint now uses `{{@custom.formspree_endpoint}}` instead of hardcoded URL
+
 ## 1.0.2
 
 - Just add screenshots
@@ -7,9 +17,9 @@
 ## 1.0.1
 
 ### Responsive and UX fixes
+- Fixed horizontal overflow on mobile
 - Aligned stats block with About text; improved spacing and layout
 - Increased stats card width and padding for readability, while preserving compact mobile layout
-- Fixed horizontal overflow on mobile
 
 ## 1.0.0
 

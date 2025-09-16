@@ -2,7 +2,7 @@
     "name": "personality",
     "description": "Ghost theme with static homepage and blog at /blog for personal website",
     "demo": "https://iliazhitenev.dev",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -117,6 +117,11 @@
             "resume_link": {
                 "type": "text",
                 "default": "https://google.com"
+            },
+            "formspree_endpoint": {
+                "type": "text",
+                "default": "#",
+                "group": "forms"
             }
         }
     },
