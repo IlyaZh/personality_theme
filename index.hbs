@@ -19,11 +19,6 @@
     {{!-- Ghost head --}}
     {{ghost_head}}
     {{!-- <style>
-        /* Set minimum page width to prevent design breakage */
-        html, body {
-            min-width: 480px;
-        }
-        
         .hero-gradient {
             background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
         }
@@ -36,7 +31,7 @@
         }
     </style> --}}
 </head>
-<body class="min-h-screen bg-base-100">
+<body class="min-h-screen bg-base-100 overflow-x-hidden">
     {{!-- Announcement Bar --}}
     {{> announcement}}
     
@@ -141,28 +136,28 @@
                         <div class="badge badge-lg badge-info badge-outline">Kubernetes</div>
                     </div>
                 </div>
-                <div class="flex items-center justify-center lg:justify-end">
-                    <div class="stats stats-vertical shadow w-full max-w-sm">
-                        <div class="stat px-6 py-4">
+                <div class="flex items-center justify-center lg:justify-end w-full">
+                    <div class="stats stats-vertical shadow w-full max-w-[calc(100vw-2rem)] sm:max-w-md">
+                        <div class="stat px-3 sm:px-6 py-2.5 sm:py-4">
                             <div class="stat-figure text-primary">
-                                <i class="fas fa-rocket text-lg sm:text-xl md:text-2xl lg:text-3xl"></i>
+                                <i class="fas fa-rocket text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl"></i>
                             </div>
-                            <div class="stat-title text-xs sm:text-sm">Projects Shipped</div>
-                            <div class="stat-value text-primary text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">15+</div>
+                            <div class="stat-title text-[10px] xs:text-xs sm:text-sm">Projects Shipped</div>
+                            <div class="stat-value text-primary text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">15+</div>
                         </div>
-                        <div class="stat px-6 py-4">
+                        <div class="stat px-3 sm:px-6 py-2.5 sm:py-4">
                             <div class="stat-figure text-secondary">
-                                <i class="fas fa-clock text-lg sm:text-xl md:text-2xl lg:text-3xl"></i>
+                                <i class="fas fa-clock text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl"></i>
                             </div>
-                            <div class="stat-title text-xs sm:text-sm">Total Experience</div>
-                            <div class="stat-value text-secondary text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">11+ years</div>
+                            <div class="stat-title text-[10px] xs:text-xs sm:text-sm">Total Experience</div>
+                            <div class="stat-value text-secondary text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">11+ years</div>
                         </div>
-                        <div class="stat px-6 py-4">
+                        <div class="stat px-3 sm:px-6 py-2.5 sm:py-4">
                             <div class="stat-figure text-accent">
-                                <i class="fas fa-server text-lg sm:text-xl md:text-2xl lg:text-3xl"></i>
+                                <i class="fas fa-server text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl"></i>
                             </div>
-                            <div class="stat-title text-xs sm:text-sm">Backend Focus</div>
-                            <div class="stat-value text-accent text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">3+ years</div>
+                            <div class="stat-title text-[10px] xs:text-xs sm:text-sm">Backend Focus</div>
+                            <div class="stat-value text-accent text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">3+ years</div>
                         </div>
                     </div>
                 </div>

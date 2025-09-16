@@ -27,3 +27,10 @@
 - Theme customization exposed via `custom.*` in `package.json` for Admin control
 - SEO/OG/Twitter dynamic meta in `default.hbs`
 - Styling: Tailwind + daisyUI, consolidated utilities, built `assets/css/screen.css`
+
+## 1.0.1
+
+### Responsive and UX fixes
+- Aligned stats block with About text; improved spacing and layout
+- Increased stats card width and padding for readability, while preserving compact mobile layout
+- Fixed horizontal overflow on mobile

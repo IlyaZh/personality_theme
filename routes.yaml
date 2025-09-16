@@ -19,7 +19,7 @@ routes:
 
 
 collections:
-  /blog/thoughts/:
+  /thoughts/:
     permalink: /thoughts/{slug}/
     template: microblog
     filter: primary_tag:[thoughts]
