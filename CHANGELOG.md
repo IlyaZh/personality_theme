@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.4
+
+### Features
+- Added custom favicon upload option in theme settings under "Customization Options"
+- Users can now upload their own favicon through Ghost Admin interface
+- Fallback to default favicon.svg if no custom favicon is set
+
 ## 1.0.3
 
 ### Security Fixes

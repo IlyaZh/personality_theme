@@ -2,7 +2,7 @@
     "name": "personality",
     "description": "Ghost theme with static homepage and blog at /blog for personal website",
     "demo": "https://iliazhitenev.dev",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -122,6 +122,11 @@
                 "type": "text",
                 "default": "#",
                 "group": "forms"
+            },
+            "favicon": {
+                "type": "image",
+                "group": "customization",
+                "description": "Upload your custom favicon. Recommended formats: ICO, PNG, SVG. Optimal size: 32x32 pixels."
             }
         }
     },

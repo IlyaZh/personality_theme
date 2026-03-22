@@ -12,9 +12,11 @@
    
     
     {{!-- Favicon --}}
-      <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
-    <link rel="alternate icon" href="{{asset 'favicon.ico'}}">
-    <link rel="mask-icon" href="{{asset 'favicon.svg'}}" color="#4f46e5">
+    {{#if @config.custom.favicon}}
+    <link rel="icon" href="{{img_url @config.custom.favicon}}">
+    {{else}}
+    <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
+    {{/if}}
     
     {{!-- Ghost head --}}
     {{ghost_head}}
