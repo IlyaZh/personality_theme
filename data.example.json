@@ -1,0 +1,191 @@
+{
+    "hero": {
+        "points": [
+            "10+ years of professional software development",
+            "Expertise in high-load systems and cloud architecture"
+        ]
+    },
+    "about": {
+        "description": [
+            "Experienced Software Engineer with a decade of expertise in designing and implementing complex distributed systems. My background spans from low-level systems to modern cloud-native architectures, allowing me to build performance-critical applications from the ground up.",
+            "I focus on creating scalable backend solutions, optimizing system throughput, and leading architectural migrations. Currently exploring new frontiers in distributed computing and system reliability, while based in a vibrant tech hub in Europe."
+        ],
+        "tags": [
+            {
+                "label": "Language A",
+                "style": "primary"
+            },
+            {
+                "label": "Language B",
+                "style": "secondary"
+            },
+            {
+                "label": "Database X",
+                "style": "accent"
+            },
+            {
+                "label": "Orchestration",
+                "style": "info"
+            }
+        ],
+        "stats": [
+            {
+                "label": "Systems Architected",
+                "value": "10+",
+                "icon": "fa-rocket",
+                "color": "primary"
+            },
+            {
+                "label": "Industry Experience",
+                "value": "10+ years",
+                "icon": "fa-clock",
+                "color": "secondary"
+            },
+            {
+                "label": "High-Load Focus",
+                "value": "5+ years",
+                "icon": "fa-server",
+                "color": "accent"
+            }
+        ]
+    },
+    "skills": [
+        {
+            "icon": "fa-laptop-code",
+            "title": "Backend Engineering",
+            "text": "Expertise in Language A, B, and C. Specialized in microservices and concurrency models.",
+            "tags": [
+                {
+                    "label": "Tech 1",
+                    "style": "primary"
+                },
+                {
+                    "label": "Tech 2",
+                    "style": "secondary"
+                }
+            ]
+        },
+        {
+            "icon": "fa-server",
+            "title": "Cloud & Infra",
+            "text": "Deep knowledge of containerization, service mesh, and managed cloud environments.",
+            "tags": [
+                {
+                    "label": "Cloud 1",
+                    "style": "accent"
+                },
+                {
+                    "label": "Cloud 2",
+                    "style": "info"
+                }
+            ]
+        },
+        {
+            "icon": "fa-cloud",
+            "title": "Engineering Excellence",
+            "text": "Proponent of automated testing, CI/CD pipelines, and observability-driven development.",
+            "tags": [
+                {
+                    "label": "DevOps",
+                    "style": "warning"
+                },
+                {
+                    "label": "SRE",
+                    "style": "primary"
+                }
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "from": "Jan 2022",
+            "to": "Present",
+            "icon": "fa-briefcase",
+            "style": "experience-border-primary",
+            "company": "Global Tech Corp",
+            "location": "Remote / Europe",
+            "description": "A market-leading platform serving millions of active users daily, specializing in real-time data processing.",
+            "stages": [
+                {
+                    "from": "Jan 2024",
+                    "to": "Present",
+                    "title": "Staff Engineer",
+                    "subtitle": "Infrastructure & Core Services",
+                    "achievements": [
+                        "Architected a new data ingestion pipeline increasing throughput by 300%",
+                        "Led cross-functional teams to implement zero-downtime database migrations",
+                        "Designed a custom service discovery mechanism for hybrid-cloud deployments"
+                    ]
+                },
+                {
+                    "from": "Jan 2022",
+                    "to": "Jan 2024",
+                    "title": "Senior Software Engineer",
+                    "subtitle": "Backend Systems",
+                    "achievements": [
+                        "Reduced system latency by 40% through rigorous profiling and optimization",
+                        "Modernized legacy payment gateway, improving transaction success rate by 5%",
+                        "Mentored junior engineers and established internal coding standards"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "May 2018",
+            "to": "Dec 2021",
+            "icon": "fa-microchip",
+            "style": "experience-border-secondary",
+            "company": "Innovative Systems Inc.",
+            "location": "City, Country",
+            "description": "Specialized in embedded solutions and real-time monitoring hardware.",
+            "stages": [
+                {
+                    "title": "Lead Software Developer",
+                    "subtitle": "Embedded & Real-time Systems",
+                    "achievements": [
+                        "Developed highly reliable firmware for safety-critical monitoring devices",
+                        "Implemented a custom real-time OS abstraction layer to support multiple hardware targets",
+                        "Reduced production defects by 25% by introducing automated hardware-in-the-loop testing"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "2012",
+            "to": "2018",
+            "icon": "fa-graduation-cap",
+            "company": "Master of Engineering",
+            "location": "Global Tech University",
+            "description": "Computer Science and Information Systems"
+        }
+    ],
+    "career_focus": {
+        "icon": "fa-bullseye",
+        "title": "Continuous Growth",
+        "description": "Committed to building systems that are not only performant but also maintainable and resilient. Currently focusing on the intersection of distributed databases and consensus algorithms.",
+        "badges": [
+            {
+                "style": "primary",
+                "label": "Distributed Computing"
+            },
+            {
+                "style": "secondary",
+                "label": "System Design"
+            },
+            {
+                "style": "accent",
+                "label": "Reliability Engineering"
+            },
+            {
+                "style": "info",
+                "label": "Open Source"
+            }
+        ]
+    },
+    "contacts": {
+        "email": "hello@example.com",
+        "linkedin": "linkedin.com/in/username",
+        "github": "github.com/username",
+        "location": "Tech Hub, Europe • Open to Remote"
+    }
+}

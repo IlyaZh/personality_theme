@@ -20,9 +20,10 @@ A modern, responsive Ghost theme with static homepage and blog functionality. Fe
 ## Installation
 
 1. Download or clone this theme
-2. Upload to your Ghost installation via Admin → Design → Themes
-3. Activate the theme
-4. Configure customization options in Admin → Design → Customize
+2. Copy `data.example.json` to `data.json` and fill it with your personal data
+3. Upload to your Ghost installation via Admin → Design → Themes
+4. Activate the theme
+5. Configure customization options in Admin → Design → Customize
 
 ## Customization Options
 

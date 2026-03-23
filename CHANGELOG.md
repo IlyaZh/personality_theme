@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.5
+
+### Features
+- Home page is no longer hardcoded; now generated at build time from `data.json` using the template engine
+
 ## 1.0.4
 
 ### Features

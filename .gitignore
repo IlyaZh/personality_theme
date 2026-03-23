@@ -4,3 +4,4 @@ ghost/
 **.zip
 **/node_modules/
 pack.sh
+index.hbs

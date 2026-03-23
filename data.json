@@ -1,0 +1,268 @@
+{
+    "hero": {
+        "points": [
+            "11+ years in software engineering",
+            "3+ years focused on scalable distributed backend systems"
+        ]
+    },
+    "about": {
+        "description": [
+            "Hello! I'm a Senior Software Engineer with 11+ years of total engineering experience, including 3+ years specializing in building and modernizing high-traffic backend systems for large-scale B2C platforms. My journey began in embedded systems and desktop applications, giving me a strong foundation in performance-critical programming.",
+            "I specialize in distributed systems architecture, performance optimization, and monolith decomposition, with expert knowledge of Go, C++, PostgreSQL, gRPC, and cloud-native technologies like Kubernetes. I transform complex technical challenges into reliable, high-performance software that drives business outcomes. Currently working at Yandex, based in Belgrade, Serbia."
+        ],
+        "tags": [
+            {
+                "label": "Go",
+                "style": "primary"
+            },
+            {
+                "label": "C++",
+                "style": "secondary"
+            },
+            {
+                "label": "PostgreSQL",
+                "style": "accent"
+            },
+            {
+                "label": "Kubernetes",
+                "style": "info"
+            }
+        ],
+        "stats": [
+            {
+                "label": "Projects Shipped",
+                "value": "15+",
+                "icon": "fa-rocket",
+                "color": "primary"
+            },
+            {
+                "label": "Total Experience",
+                "value": "11+ years",
+                "icon": "fa-clock",
+                "color": "secondary"
+            },
+            {
+                "label": "Backend Focus",
+                "value": "3+ years",
+                "icon": "fa-server",
+                "color": "accent"
+            }
+        ]
+    },
+    "skills": [
+        {
+            "icon": "fa-laptop-code",
+            "title": "Backend Development",
+            "text": "Go, C++, gRPC, Microservices, Distributed Systems (3+ years focus)",
+            "tags": [
+                {
+                    "label": "Go",
+                    "style": "primary"
+                },
+                {
+                    "label": "C++",
+                    "style": "secondary"
+                }
+            ]
+        },
+        {
+            "icon": "fa-server",
+            "title": "Infrastructure & Cloud",
+            "text": "Kubernetes, Docker, CI/CD, Cloud-Native Technologies",
+            "tags": [
+                {
+                    "label": "Kubernetes",
+                    "style": "accent"
+                },
+                {
+                    "label": "Docker",
+                    "style": "info"
+                }
+            ]
+        },
+        {
+            "icon": "fa-cloud",
+            "title": "DevOps & Infrastructure",
+            "text": "CI/CD, GitHub Actions, TeamCity, Docker, Kubernetes, Cloud-Native",
+            "tags": [
+                {
+                    "label": "Kubernetes",
+                    "style": "warning"
+                },
+                {
+                    "label": "CI/CD",
+                    "style": "primary"
+                }
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "from": "Jul 2022",
+            "to": "Present",
+            "icon": "fa-briefcase",
+            "style": "experience-border-yandex-senior",
+            "company": "Yandex",
+            "location": "Belgrade, Serbia",
+            "description": "Yandex Eats is leading food and grocery delivery super-app in Eastern Europe, operating at scale comparable to Uber Eats or DoorDash.",
+            "stages": [
+                {
+                    "from": "Aug 2025",
+                    "to": "Present",
+                    "title": "Senior Software Engineer - B2C Department",
+                    "subtitle": "Distributed Systems & Consumer-Facing Services",
+                    "achievements": [
+                        "Recently transferred to B2C department to apply expertise in distributed systems",
+                        "Focus on developing scalable, high-impact features for core consumer-facing services",
+                        "Working on product challenges at scale comparable to major delivery platforms"
+                    ]
+                },
+                {
+                    "from": "Oct 2023",
+                    "to": "Aug 2025",
+                    "title": "Software Engineer",
+                    "subtitle": "Backend Development & System Architecture",
+                    "achievements": [
+                        "Led seamless, zero-downtime migration of core order-processing monolith to microservices",
+                        "Re-architected billing service, automating invoicing from 70% to 100%",
+                        "Eliminated critical memory leaks, enabling 100x larger reports (200k to 20M+ rows)",
+                        "Improved system performance by migrating S2S communication to gRPC, reducing latency by 25%"
+                    ]
+                },
+                {
+                    "from": "Jul 2022",
+                    "to": "Oct 2023",
+                    "title": "Software Engineer",
+                    "subtitle": "Backend Development Focus",
+                    "achievements": [
+                        "Led technical refactoring of statistics service, achieving 125x performance increase",
+                        "Owned full migration of core order processing flow from legacy monolith",
+                        "Developed shared authorization library in Go, adopted across all department services",
+                        "Mentored intern who shipped three features independently within 3 months"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "May 2019",
+            "to": "Jul 2022",
+            "icon": "fa-microchip",
+            "style": "experience-border-kontinent",
+            "company": "KONTINENT",
+            "location": "St. Petersburg, Russia",
+            "description": "Development and manufacturing of embedded systems for transport applications.",
+            "stages": [
+                {
+                    "title": "Software Developer",
+                    "subtitle": "Embedded Systems & C++",
+                    "achievements": [
+                        "Developed firmware for HVAC systems in public transport, ensuring high reliability and fault tolerance",
+                        "Optimized real-time data processing algorithms, significantly improving system performance",
+                        "Designed and implemented testing device, reducing test time and increasing coverage for mass-produced products",
+                        "Led to improved cost-efficiency and product quality through systematic testing approach"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "May 2018",
+            "to": "May 2019",
+            "icon": "fa-desktop",
+            "style": "experience-border-maiman",
+            "company": "Maiman Electronics",
+            "location": "St. Petersburg, Russia",
+            "description": "Development and manufacturing of laser diode drives (Part-Time).",
+            "stages": [
+                {
+                    "title": "Software Engineer",
+                    "subtitle": "Desktop Applications & C++",
+                    "achievements": [
+                        "Developed and open-sourced desktop applications for laser diode power supply devices",
+                        "Created software simulator, reducing material and time costs for product testing",
+                        "Improved development flexibility through comprehensive testing tools",
+                        "Built configurable GUI with device management and calibration features"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "Sep 2016",
+            "to": "May 2018",
+            "icon": "fa-microscope",
+            "style": "experience-border-research",
+            "company": "Research Institute",
+            "location": "St. Petersburg, Russia",
+            "description": "Environmental impact research on microelectronics.",
+            "stages": [
+                {
+                    "title": "Embedded Software Engineer",
+                    "subtitle": "Hardware & Software Design",
+                    "achievements": [
+                        "Designed integrated hardware and software systems for automated testing of microchips under various climate conditions",
+                        "Developed desktop control software in C++ to manage testing hardware and automate complex test sequences",
+                        "Wrote firmware in C/C++ for microcontrollers, creating low-level drivers and communication protocols",
+                        "Built foundation in low-level programming and hardware-software integration"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "Sep 2016",
+            "to": "May 2018",
+            "icon": "fa-industry",
+            "style": "experience-border-research",
+            "company": "Research Institute",
+            "location": "St. Petersburg, Russia",
+            "description": "Industrial laser power supplies development.",
+            "stages": [
+                {
+                    "title": "Junior Embedded Engineer",
+                    "subtitle": "Embedded Control Systems",
+                    "achievements": [
+                        "First professional engineering role while completing Master's degree",
+                        "Designed and developed embedded control systems for industrial laser power supplies",
+                        "Built touchscreen control panel from ground up using C/C++ on embedded framework",
+                        "Implemented RS-485 communication protocol for device control and real-time status display"
+                    ]
+                }
+            ]
+        },
+        {
+            "from": "2014",
+            "to": "2016",
+            "icon": "fa-graduation-cap",
+            "company": "Master of Science",
+            "location": "ITMO University · St. Petersburg, Russia",
+            "description": "Laser Engineering and Laser Technologies"
+        }
+    ],
+    "career_focus": {
+        "icon": "fa-bullseye",
+        "title": "Growing in Backend Engineering",
+        "description": "My journey from embedded systems to backend development has given me a unique perspective on performance-critical programming. I specialize in transforming complex technical challenges into reliable, high-performance software that drives business outcomes. Currently focused on developing scalable, high-impact features for consumer-facing services at scale.",
+        "badges": [
+            {
+                "style": "primary",
+                "label": "Distributed Systems"
+            },
+            {
+                "style": "secondary",
+                "label": "Monolith Decomposition"
+            },
+            {
+                "style": "accent",
+                "label": "Performance Optimization"
+            },
+            {
+                "style": "info",
+                "label": "Cloud-Native"
+            }
+        ]
+    },
+    "contacts": {
+        "email": "me@iliazhitenev.dev",
+        "linkedin": "linkedin.com/in/iliazhitenev",
+        "github": "github.com/IlyaZh",
+        "location": "Belgrade, Serbia • Open to EU relocation"
+    }
+}
