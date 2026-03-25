@@ -185,7 +185,7 @@
                             <div class="text-base-content/70 mb-3"><%= position.location %></div>
                             <div class="text-sm text-base-content/60 mb-3"><%= position.description %></div>
 
-                            <% if(typeof position.stages !== 'undefined' && position.stages)  position.stages.forEach(function(stage) { %>
+                            <% if(typeof position.stages !== 'undefined' && position.stages) { position.stages.forEach(function(stage) { %>
                             <div class="mt-4 p-4 <% if(typeof position.style !== 'undefined' && position.style) { %> <%= position.style %> <% } %> <% if(index % 2 === 0) { %>pr-4 border-r-4<% } else { %>pl-4 border-l-4<% } %>">
                                 <% if(typeof stage.from !== 'undefined' && typeof stage.to !== 'undefined' && stage.from && stage.to) { %><div class="badge experience-badge-yandex-senior mb-2"><%= stage.from %> - <%= stage.to %></div><% } %>
                                 <div class="text-md font-semibold"><%= stage.title %></div>
@@ -250,6 +250,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-base-100">
+        <% if(typeof contacts !== 'undefined' && contacts) { %>
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-16 text-base-content">Contact</h2>
             <div class="max-w-4xl mx-auto">
@@ -266,7 +267,7 @@
                                 </p>
                             </div>
                         </div>
-                        <% if(typeof contacts.email !== 'undefined' && contacts.email) { %>
+                        <% if(contacts.email) { %>
                         <div class="flex items-center space-x-4">
                             <div class="btn btn-circle btn-primary">
                                 <i class="fas fa-envelope text-xl"></i>
@@ -278,7 +279,7 @@
                                 </p>
                             </div>
                         </div><%}%>
-                        <% if(typeof contacts.linkedin !== 'undefined' && contacts.linkedin) { %>
+                        <% if(contacts.linkedin) { %>
                         <div class="flex items-center space-x-4">
                             <div class="btn btn-circle btn-secondary">
                                 <i class="fab fa-linkedin text-xl"></i>
@@ -290,7 +291,7 @@
                                 </p>
                             </div>
                         </div><%}%>
-                        <% if(typeof contacts.github !== 'undefined' && contacts.github) { %>
+                        <% if(contacts.github) { %>
                         <div class="flex items-center space-x-4">
                             <div class="btn btn-circle btn-accent">
                                 <i class="fab fa-github text-xl"></i>
@@ -303,15 +304,16 @@
                             </div>
                         </div>
                         <%}%>
+                        <% if(contacts.location) { %>
                         <div class="flex items-center space-x-4">
                             <div class="btn btn-circle btn-warning">
                                 <i class="fas fa-map-marker-alt text-xl"></i>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-base-content">Location</h3>
-                                <p class="text-base-content/70">Belgrade, Serbia • Open to EU relocation</p>
+                                <p class="text-base-content/70"><%= contacts.location %></p>
                             </div>
-                        </div>
+                        </div><%}%>
                     </div>
                     <div class="card bg-base-200 shadow-xl">
                         <div class="card-body">
@@ -335,6 +337,7 @@
                 </div>
             </div>
         </div>
+        <% } %>
     </section>
 
     {{> footer}}

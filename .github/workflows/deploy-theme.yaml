@@ -10,6 +10,19 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Theme
+        run: npm run build
+
       - name: Deploy Ghost Theme
         uses: TryGhost/action-deploy-theme@v1.6.6
         with:
