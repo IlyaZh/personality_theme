@@ -36,6 +36,24 @@ This repository serves as a template for creating your own Ghost theme. Follow t
 3. Choose visibility (public or private)
 4. Click **"Create repository from template"**
 
+#### Optional: link upstream template for easy updates
+
+If you want to pull new changes from this template in the future, add an upstream remote:
+
+```bash
+git clone https://github.com/<your-user>/<your-repo>.git
+cd <your-repo>
+git remote add template https://github.com/IlyaZh/personality_theme.git
+git fetch template
+```
+
+When template has updates:
+
+```bash
+git fetch template
+git merge template/main
+```
+
 ### 2. Set Up Ghost Admin API Integration
 
 To enable automated deployments and theme updates, you need to create an integration in your Ghost admin panel:
