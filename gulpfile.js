@@ -13,16 +13,23 @@ function compileHome() {
 
         const personalData = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
 
-        return gulp.src('./index.template.hbs')
+        const filesToProcess = [
+            './index.template.hbs',
+            './partials/footer.template.hbs'
+        ];
+
+        return gulp.src(filesToProcess, { 'base': './' })
             .pipe(template(personalData))
             .on('error', function (err) {
                 console.error('--- Ошибка шаблонизатора! ---');
                 console.error(err.message);
-                this.emit('end'); // Не даем процессу зависнуть
+                this.emit('end');
             })
-            .pipe(rename('index.hbs'))
+            .pipe(rename((path) => {
+                path.basename = path.basename.replace('.template', '');
+            }))
             .pipe(gulp.dest('./'))
-            .on('end', () => console.log('--- index.hbs успешно создан ---'));
+            .on('end', () => console.log('--- Файлы успешно созданы ---'));
     } catch (err) {
         console.error('Ошибка парсинга JSON или чтения файла:', err.message);
         return Promise.resolve();
@@ -30,7 +37,11 @@ function compileHome() {
 }
 
 function watchFiles() {
-    gulp.watch(['./index.template.hbs', './data.json'], compileHome);
+    gulp.watch([
+        './index.template.hbs',
+        './partials/**/*.template.hbs',
+        './data.json'
+    ], compileHome);
 }
 
 exports.build = compileHome;

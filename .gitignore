@@ -5,3 +5,4 @@ ghost/
 **/node_modules/
 pack.sh
 index.hbs
+**/partials/footer.hbs
