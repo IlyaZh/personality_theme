@@ -12,8 +12,8 @@
    
     
     {{!-- Favicon --}}
-    {{#if @config.custom.favicon}}
-    <link rel="icon" href="{{img_url @config.custom.favicon}}">
+    {{#if @custom.favicon}}
+    <link rel="icon" href="{{img_url @custom.favicon}}">
     {{else}}
     <link rel="icon" type="image/svg+xml" href="{{asset 'favicon.svg'}}">
     {{/if}}

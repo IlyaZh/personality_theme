@@ -25,6 +25,40 @@ A modern, responsive Ghost theme with static homepage and blog functionality. Fe
 4. Activate the theme
 5. Configure customization options in Admin → Design → Customize
 
+## Using This Repository as a Template
+
+This repository serves as a template for creating your own Ghost theme. Follow these steps to create and deploy your own version:
+
+### 1. Create Your Own Repository from This Template
+
+1. Click the **"Use this template"** button on GitHub
+2. Name your new repository
+3. Choose visibility (public or private)
+4. Click **"Create repository from template"**
+
+### 2. Set Up Ghost Admin API Integration
+
+To enable automated deployments and theme updates, you need to create an integration in your Ghost admin panel:
+
+1. Go to your Ghost admin panel: `https://your-ghost-blog.com/ghost`
+2. Navigate to **Settings → Integrations → Add custom integration**
+3. Give it a name (e.g., "GitHub Theme Deployment")
+4. Copy the **Admin API Key** and **Admin API URL**
+5. Keep these credentials safe - you'll need them in the next step
+
+### 3. Add API Credentials to GitHub Secrets
+
+1. Go to your GitHub repository
+2. Navigate to **Settings → Secrets and variables → Actions**
+3. Click **"New repository secret"** and add:
+   - **Name:** `GHOST_ADMIN_API_KEY`
+   - **Value:** Paste your Ghost Admin API Key
+4. Click **"New repository secret"** again and add:
+   - **Name:** `GHOST_ADMIN_API_URL`
+   - **Value:** Paste your Ghost Admin API URL (e.g., `https://your-ghost-blog.com`)
+
+These secrets will be used by GitHub Actions to automatically update your theme on your Ghost blog when you push changes.
+
 ## Customization Options
 
 ### Header Settings
