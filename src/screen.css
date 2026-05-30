@@ -41,6 +41,11 @@ html, body {
     min-width: 0;
 }
 
+:root {
+    --gh-font-heading: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --gh-font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 /* Theme-specific styles */
 .hero-gradient {
     background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
@@ -61,6 +66,12 @@ html, body {
 .kg-card {
     margin: 1.5em 0;
     position: relative;
+}
+
+/* Ghost Koenig editor support */
+.kg-width-wide,
+.kg-width-full {
+    display: block;
 }
 
 /* Width modifiers */
